@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TERMODİNAMİK I · BÖLÜM 8 — Ekserji: İş Potansiyelinin Bir Ölçüsü</title>
+<style>:root{--a:#c2570c;--a-soft:#fff3e8;--a-line:#f7cba5}
+:root{--bg:#f6f8fc;--card:#fff;--ink:#1f2937;--mut:#5b6472;--line:#e5e9f2;
+--ok:#0f9d6b;--okbg:#e9f8f1;--warn:#b45309;--warnbg:#fff7e8;--info:#2563eb;--infobg:#eef4ff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px 60px}
+header.hero{background:linear-gradient(135deg,var(--a-soft) 0%,#ffffff 70%);border-bottom:1px solid var(--line)}
+header.hero .wrap{padding-top:34px;padding-bottom:28px}
+.kicker{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--a);background:#fff;border:1px solid var(--a-line);padding:3px 10px;border-radius:999px}
+h1{font-size:34px;line-height:1.2;margin:12px 0 8px;color:#111827}
+.sub{color:var(--mut);margin:0;max-width:760px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font-size:13px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--mut)}
+nav.toc{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 20px;white-space:nowrap}
+nav.toc a{font-size:14px;color:var(--mut);text-decoration:none;padding:5px 9px;border-radius:8px}
+nav.toc a:hover{background:var(--a-soft);color:var(--a)}
+.toolbar{margin-left:auto;display:flex;gap:6px}
+.btn{font:inherit;font-size:13px;border:1px solid var(--a-line);background:#fff;color:var(--a);border-radius:8px;padding:5px 12px;cursor:pointer}
+.btn:hover{background:var(--a-soft)}
+section{margin-top:40px;scroll-margin-top:64px}
+h2{font-size:24px;margin:0 0 16px;display:flex;align-items:center;gap:10px}
+h2 .num{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:9px;background:var(--a);color:#fff;font-size:16px}
+h3{font-size:18px;margin:22px 0 8px;color:#111827}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:14px 0;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid .card{margin:0}
+.card h3:first-child,.card h4:first-child{margin-top:0}
+h4{margin:0 0 6px;font-size:16px;color:var(--a)}
+p{margin:8px 0}
+ul{margin:6px 0;padding-left:22px}
+li{margin:3px 0}
+.eq{font-family:"Cambria Math","Cambria","Times New Roman",serif;font-size:18px;background:var(--a-soft);border-left:4px solid var(--a);border-radius:8px;padding:10px 16px;margin:10px 0;overflow-x:auto;white-space:nowrap}
+.eq.big{font-size:20px;text-align:center;border-left:none;border:1px dashed var(--a-line)}
+.eq small{font-family:"Segoe UI",system-ui,sans-serif;font-size:13px;color:var(--mut);margin-left:10px}
+.m{font-family:"Cambria Math","Cambria","Times New Roman",serif;font-size:1.06em}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 3px;line-height:1.25}
+.fr>span:first-child{border-bottom:1.3px solid currentColor;padding:0 3px}
+.fr>span:last-child{padding:0 3px}
+sub,sup{font-size:.72em}
+.tip,.note,.warn{border-radius:10px;padding:10px 14px;margin:12px 0;font-size:15px}
+.tip{background:var(--okbg);border:1px solid #bfe9d6}
+.tip b:first-child{color:var(--ok)}
+.warn{background:var(--warnbg);border:1px solid #f6dcae}
+.warn b:first-child{color:var(--warn)}
+.note{background:var(--infobg);border:1px solid #cddcff}
+.note b:first-child{color:var(--info)}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:8px 0}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--a-soft);color:#111827;font-weight:600}
+td.m{white-space:nowrap}
+.card{overflow-x:auto}
+.prob{background:#fff;border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden}
+.prob .ph{display:flex;gap:12px;align-items:flex-start;padding:16px 20px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,var(--a-soft),#fff)}
+.prob .tag{flex:none;font-weight:700;font-size:13px;color:#fff;background:var(--a);border-radius:8px;padding:3px 9px;margin-top:3px}
+.prob .q{margin:0}
+.prob .topic{font-size:12px;color:var(--a);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.prob .body{padding:4px 20px 16px}
+details{margin-top:10px}
+details>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--a);padding:6px 12px;border:1px solid var(--a-line);border-radius:8px;background:#fff;user-select:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"▸";transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+details[open]>summary{background:var(--a-soft)}
+.steps{counter-reset:s;margin:12px 0 0;padding:0;list-style:none}
+.steps>li{counter-increment:s;position:relative;padding:4px 0 8px 36px;border-left:2px solid var(--a-line);margin-left:12px}
+.steps>li::before{content:counter(s);position:absolute;left:-13px;top:4px;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid var(--a);color:var(--a);font-size:12px;font-weight:700;display:grid;place-items:center}
+.given{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.given span{font-family:"Cambria Math","Cambria",serif;background:#f3f4f6;border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:15px}
+.ans{display:inline-block;margin-top:6px;background:var(--okbg);border:1px solid #bfe9d6;color:#065f46;font-weight:700;border-radius:8px;padding:4px 12px;font-family:"Cambria Math","Cambria",serif}
+.done{margin-left:auto;flex:none;font-size:12px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:3px 10px;cursor:pointer;color:var(--mut)}
+.done.on{background:var(--okbg);border-color:#bfe9d6;color:var(--ok)}
+.qa{border-bottom:1px solid var(--line);padding:10px 0}
+.qa:last-child{border-bottom:none}
+.qa details{margin-top:6px}
+.qa details>summary{font-size:14px;padding:3px 10px}
+.qa .a{margin-top:8px;color:#374151}
+.sheet .eq{font-size:16px;margin:6px 0}
+footer{margin-top:50px;color:var(--mut);font-size:13px;text-align:center}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;background:var(--a-soft);color:var(--a);font-weight:600;margin-right:4px}
+@media (max-width:640px){h1{font-size:26px}.eq{font-size:16px}.card{padding:14px 16px}}
+@media print{nav.toc,.btn,.done{display:none}body{background:#fff}.prob,.card{break-inside:avoid}details>summary{display:none}}
+</style></head>
+<body data-page="b8">
+<header class="hero"><div class="wrap">
+<a href="index.html" style="display:inline-block;margin-right:10px;font-size:13px;color:var(--a);text-decoration:none;font-weight:600">← Tüm haftalar</a><span class="kicker">TERMODİNAMİK I · BÖLÜM 8</span>
+<h1>Ekserji: İş Potansiyelinin Bir Ölçüsü</h1><p class="sub">Ölü hal, tersinir iş ve tersinmezlik, ikinci yasa verimi, kapalı sistem ve akış ekserjisi, ekserji geçişi, ekserjinin azalması ilkesi ve ekserji dengesi.</p>
+<div class="chips"><span class="chip">8 çözümlü soru</span><span class="chip">6 kavram sorusu</span><span class="chip">Ekserji dengesi</span><span class="chip">Formül kartı</span><span class="chip" id="prog"></span></div>
+</div></header>
+<nav class="toc"><div class="wrap"><a href="#ozet">Özet</a><a href="#ekserji">Ekserji</a><a href="#tersinir">Tersinir İş · η<sub>II</sub></a><a href="#sistem">φ ve ψ</a><a href="#gecis">Geçiş</a><a href="#denge">Denge</a><a href="#sorular">Sorular</a><a href="#kavram">Kavram</a><a href="#formul">Formül Kartı</a><div class="toolbar"><button class="btn" onclick="toggleAll(true)">Tüm çözümleri aç</button><button class="btn" onclick="toggleAll(false)">Kapat</button></div></div></nav>
+<main class="wrap">
+<section id="ozet"><h2><span class="num">1</span>Özet</h2>
+<div class="grid">
+<div class="card"><h4>Bu haftanın fikri</h4><p>Enerjinin hepsi işe dönüşemez. <b>Ekserji</b> (kullanılabilirlik), bir sistemin çevresiyle dengeye (ölü hale) gelirken verebileceği <b>en fazla yararlı iştir</b>. Ekserji korunmaz; tersinmezliklerle <b>yok olur</b>.</p></div>
+<div class="card"><h4>En çok sorulan</h4><ul><li>Tersinir iş, tersinmezlik (yok olan ekserji)</li><li>İkinci yasa verimi η<sub>II</sub></li><li>Kapalı sistem ekserjisi φ ve akış ekserjisi ψ</li><li>Türbin / ısı makinesi ekserji analizi</li></ul></div>
+<div class="card"><h4>Altın kural</h4><p><span class="m">X<sub>yok olan</sub> = T<sub>0</sub> S<sub>üretim</sub> ≥ 0</span>. Bölüm 7'deki entropi üretimini T<sub>0</sub> ile çarparsan kayıp iş potansiyelini bulursun.</p></div>
+</div>
+</section>
+<section id="ekserji"><h2><span class="num">2</span>Ekserji ve Ölü Hal</h2>
+<div class="card">
+<h3>Ölü hal ve çevre</h3>
+<p>Sistem çevresiyle (T<sub>0</sub>, P<sub>0</sub>) termodinamik dengedeyse <b>ölü haldedir</b>: hızı ve yüksekliği sıfır, çevreyle aynı sıcaklık ve basınçta. Ölü haldeki sistemin ekserjisi <b>sıfırdır</b>. Tipik olarak T<sub>0</sub> = 25 °C, P<sub>0</sub> = 1 atm (100 kPa) alınır.</p>
+<ul><li>Sistem belirli bir halden ölü hale <b>tersinir</b> olarak geçerse en fazla iş elde edilir — bu iş ekserjidir.</li>
+<li>Ekserji, termodinamik yasalarına aykırı olmadan bir düzeneğin verebileceği işin <b>üst sınırıdır</b>.</li>
+<li>Atmosfer çok enerji içerir ama ekserjisi sıfırdır (zaten ölü hal).</li>
+<li><b>Yakın çevre:</b> sıcak patatesin etrafında sıcaklığın değiştiği bölge; onun ötesi "çevre"dir.</li></ul>
+<h3>Kinetik ve potansiyel enerjinin ekserjisi</h3>
+<div class="eq">x<sub>ke</sub> = ke = <span class="fr"><span>V²</span><span>2</span></span> &nbsp;&nbsp;&nbsp;&nbsp; x<sub>pe</sub> = pe = gz</div>
+<p>Kinetik ve potansiyel enerji <b>tamamen işe dönüştürülebilir</b>; ekserjileri kendilerine eşittir. <b>Kullanılamayan enerji</b>: tersinir ısı makinesiyle bile işe dönüştürülemeyen kısım.</p>
+</div>
+</section>
+<section id="tersinir"><h2><span class="num">3</span>Tersinir İş, Tersinmezlik ve η<sub>II</sub></h2>
+<div class="card">
+<h3>Çevre işi ve yararlı iş</h3>
+<p>Kapalı sistem genişlerken çevredeki atmosferi itmek için bir miktar iş yapar; bu iş kullanılamaz:</p>
+<div class="eq">W<sub>çevre</sub> = P<sub>0</sub>(V<sub>2</sub> − V<sub>1</sub>) &nbsp;&nbsp;&nbsp;&nbsp; W<sub>y</sub> = W − W<sub>çevre</sub> = W − P<sub>0</sub>(V<sub>2</sub> − V<sub>1</sub>)</div>
+<p>Sabit hacimli sistemlerde ve sürekli akışlı cihazlarda (türbin, kompresör) <span class="m">W<sub>y</sub> = W</span>.</p>
+<h3>Tersinir iş ve tersinmezlik</h3>
+<p><b>Tersinir iş W<sub>tr</sub>:</b> İki hal arasında elde edilebilecek en fazla yararlı iş (ya da gerekli en az iş).</p>
+<div class="eq big">I = X<sub>yok olan</sub> = W<sub>tr,ç</sub> − W<sub>y,ç</sub> &nbsp;(iş üreten) &nbsp;&nbsp;&nbsp; I = W<sub>y,g</sub> − W<sub>tr,g</sub> &nbsp;(iş tüketen)</div>
+<p>Tersinmezlik = kayıp iş = yok olan ekserji. Tersinir süreçte I = 0, gerçek süreçte I &gt; 0.</p>
+<h3>İkinci yasa verimi η<sub>II</sub></h3>
+<p>Isıl verimleri eşit iki makine, farklı sıcaklıklar arasında çalışıyorsa "iyilikleri" farklıdır. η<sub>II</sub> gerçek performansı tersinir sınırla kıyaslar:</p>
+<table>
+<tr><th>Isı makinesi</th><td class="m">η<sub>II</sub> = <span class="fr"><span>η<sub>ıs</sub></span><span>η<sub>ıs,tr</sub></span></span></td></tr>
+<tr><th>İş üreten cihaz</th><td class="m">η<sub>II</sub> = <span class="fr"><span>W<sub>y</sub></span><span>W<sub>tr</sub></span></span></td></tr>
+<tr><th>İş tüketen cihaz</th><td class="m">η<sub>II</sub> = <span class="fr"><span>W<sub>tr</sub></span><span>W<sub>y</sub></span></span></td></tr>
+<tr><th>Soğutma / ısı pompası</th><td class="m">η<sub>II</sub> = <span class="fr"><span>COP</span><span>COP<sub>tr</sub></span></span></td></tr>
+<tr><th>Genel tanım</th><td class="m">η<sub>II</sub> = <span class="fr"><span>Elde edilen ekserji</span><span>Sağlanan ekserji</span></span> = 1 − <span class="fr"><span>X<sub>yok olan</sub></span><span>X<sub>sağlanan</sub></span></span></td></tr>
+</table>
+<p>Bütün tersinir makinelerin η<sub>II</sub> değeri %100'dür.</p>
+</div>
+</section>
+<section id="sistem"><h2><span class="num">4</span>Kapalı Sistem ve Akış Ekserjisi</h2>
+<div class="card">
+<h3>Kapalı sistemin (sabit kütlenin) ekserjisi</h3>
+<div class="eq big">X = (U − U<sub>0</sub>) + P<sub>0</sub>(V − V<sub>0</sub>) − T<sub>0</sub>(S − S<sub>0</sub>) + m<span class="fr"><span>V²</span><span>2</span></span> + mgz</div>
+<div class="eq">φ = (u − u<sub>0</sub>) + P<sub>0</sub>(v − v<sub>0</sub>) − T<sub>0</sub>(s − s<sub>0</sub>) + <span class="fr"><span>V²</span><span>2</span></span> + gz &nbsp;[kJ/kg]</div>
+<div class="eq">ΔX = X<sub>2</sub> − X<sub>1</sub> = m(φ<sub>2</sub> − φ<sub>1</sub>)</div>
+<p>Soğuk bir ortamın ekserjisi de <b>pozitiftir</b>: çevreden ona ısı geçişiyle iş üretilebilir.</p>
+<div class="tip"><b>Katı/sıvı kısayolu</b> (sabit c, hacim değişimi ihmal): <span class="m">X = mc[(T − T<sub>0</sub>) − T<sub>0</sub> ln(T/T<sub>0</sub>)]</span></div>
+<h3>Akış (akım) ekserjisi</h3>
+<p>Akış enerjisinin (Pv) ekserjisi, akış kesitindeki hayali pistonun verdiği yararlı iştir: <span class="m">x<sub>akış</sub> = (P − P<sub>0</sub>)v</span>.</p>
+<div class="eq big">ψ = (h − h<sub>0</sub>) − T<sub>0</sub>(s − s<sub>0</sub>) + <span class="fr"><span>V²</span><span>2</span></span> + gz</div>
+<div class="eq">Δψ = ψ<sub>2</sub> − ψ<sub>1</sub> = (h<sub>2</sub> − h<sub>1</sub>) − T<sub>0</sub>(s<sub>2</sub> − s<sub>1</sub>) + Δke + Δpe</div>
+<table><tr><th></th><th>Enerji</th><th>Ekserji</th></tr>
+<tr><td>Sabit kütle</td><td class="m">e = u + ke + pe</td><td class="m">φ</td></tr>
+<tr><td>Akışkan akımı</td><td class="m">θ = h + ke + pe</td><td class="m">ψ</td></tr></table>
+</div>
+</section>
+<section id="gecis"><h2><span class="num">5</span>Ekserji Geçişi ve Azalma İlkesi</h2>
+<div class="card">
+<table>
+<tr><th>Mekanizma</th><th>Ekserji geçişi</th><th>Not</th></tr>
+<tr><td><b>Isı</b></td><td class="m">X<sub>ısı</sub> = (1 − <span class="fr"><span>T<sub>0</sub></span><span>T</span></span>)Q</td><td>T sabit değilse <span class="m">∫(1 − T<sub>0</sub>/T)δQ</span>. (1 − T<sub>0</sub>/T) = Carnot verimi</td></tr>
+<tr><td><b>İş</b></td><td class="m">X<sub>iş</sub> = W − W<sub>çevre</sub></td><td>Sınır işi için; diğer iş türlerinde X<sub>iş</sub> = W</td></tr>
+<tr><td><b>Kütle</b></td><td class="m">X<sub>kütle</sub> = mψ, &nbsp; Ẋ = ṁψ</td><td>Kütle enerji, entropi ve ekserji taşır</td></tr>
+</table>
+<div class="note"><b>Carnot verimi η<sub>c</sub> = 1 − T<sub>0</sub>/T</b>, T sıcaklığındaki kaynaktan gelen enerjinin T<sub>0</sub> çevresinde işe dönüşebilen kısmıdır. Sonlu sıcaklık farkında ısı geçişinde ekserji yok olur.</div>
+<h3>Ekserjinin azalması ilkesi</h3>
+<div class="eq">ΔX<sub>ayrık</sub> = (X<sub>2</sub> − X<sub>1</sub>)<sub>ayrık</sub> ≤ 0 &nbsp;&nbsp;&nbsp;&nbsp; X<sub>yok olan</sub> = T<sub>0</sub>S<sub>üretim</sub> ≥ 0</div>
+<p>Ayrık bir sistemin ekserjisi gerçek süreçte <b>daima azalır</b>, tersinir süreçte sabit kalır; asla artmaz. Sistemin ekserji değişimi negatif olabilir, ama <b>ekserji yok oluşu negatif olamaz</b>.</p>
+<table><tr><th>X<sub>yok olan</sub> &gt; 0</th><td>tersinmez</td></tr><tr><th>X<sub>yok olan</sub> = 0</th><td>tersinir</td></tr><tr><th>X<sub>yok olan</sub> &lt; 0</th><td>olanaksız</td></tr></table>
+</div>
+</section>
+<section id="denge"><h2><span class="num">6</span>Ekserji Dengesi</h2>
+<div class="card">
+<div class="eq big">X<sub>giren</sub> − X<sub>çıkan</sub> − X<sub>yok olan</sub> = ΔX<sub>sistem</sub></div>
+<p>Sistemin ekserji değişimi = sınırdan net ekserji geçişi − sınır içindeki tersinmezliklerle yok olan ekserji.</p>
+<h3>Kapalı sistem</h3>
+<div class="eq">Σ(1 − <span class="fr"><span>T<sub>0</sub></span><span>T<sub>k</sub></span></span>)Q<sub>k</sub> − [W − P<sub>0</sub>(V<sub>2</sub> − V<sub>1</sub>)] − T<sub>0</sub>S<sub>üretim</sub> = X<sub>2</sub> − X<sub>1</sub></div>
+<p>Isı sisteme, iş sistemden <b>pozitif</b>. Sınırı T<sub>0</sub>'da çizilen genişletilmiş sistem (sistem + yakın çevre) kullanılırsa dış tersinmezlikler de hesaba katılır.</p>
+<h3>Kontrol hacmi</h3>
+<div class="eq">Σ(1 − <span class="fr"><span>T<sub>0</sub></span><span>T<sub>k</sub></span></span>)Q̇<sub>k</sub> − (Ẇ − P<sub>0</sub><span class="fr"><span>dV<sub>KH</sub></span><span>dt</span></span>) + Σ<sub>g</sub>ṁψ − Σ<sub>ç</sub>ṁψ − Ẋ<sub>yok olan</sub> = <span class="fr"><span>dX<sub>KH</sub></span><span>dt</span></span></div>
+<h3>Sürekli akış</h3>
+<div class="eq">Σ(1 − <span class="fr"><span>T<sub>0</sub></span><span>T<sub>k</sub></span></span>)Q̇<sub>k</sub> − Ẇ + Σ<sub>g</sub>ṁψ − Σ<sub>ç</sub>ṁψ − Ẋ<sub>yok olan</sub> = 0</div>
+<p>Tek akış: <span class="m">ṁ(ψ<sub>1</sub> − ψ<sub>2</sub>) = Ẇ − Σ(1 − T<sub>0</sub>/T<sub>k</sub>)Q̇<sub>k</sub> + Ẋ<sub>yok olan</sub></span></p>
+<h3>Tersinir iş</h3>
+<p>Ekserji dengesinde <b>X<sub>yok olan</sub> = 0</b> konunca W, W<sub>tr</sub> olur. Adyabatik tek akış: <span class="m">Ẇ<sub>tr</sub> = ṁ(ψ<sub>1</sub> − ψ<sub>2</sub>)</span>. Türbin için en fazla çıktı, kompresör için en az girdidir.</p>
+<h3>Sürekli akışlı cihazların η<sub>II</sub>'si (Δke, Δpe ihmal)</h3>
+<table>
+<tr><th>Türbin</th><td class="m">η<sub>II</sub> = <span class="fr"><span>w</span><span>ψ<sub>1</sub> − ψ<sub>2</sub></span></span> = 1 − <span class="fr"><span>T<sub>0</sub>s<sub>üret</sub></span><span>ψ<sub>1</sub> − ψ<sub>2</sub></span></span></td></tr>
+<tr><th>Kompresör</th><td class="m">η<sub>II</sub> = <span class="fr"><span>ψ<sub>2</sub> − ψ<sub>1</sub></span><span>w<sub>g</sub></span></span> = 1 − <span class="fr"><span>T<sub>0</sub>s<sub>üret</sub></span><span>w<sub>g</sub></span></span></td></tr>
+<tr><th>Isı değiştirici</th><td class="m">η<sub>II</sub> = <span class="fr"><span>ṁ<sub>soğuk</sub>(ψ<sub>4</sub> − ψ<sub>3</sub>)</span><span>ṁ<sub>sıcak</sub>(ψ<sub>1</sub> − ψ<sub>2</sub>)</span></span></td></tr>
+<tr><th>Karışma odası</th><td class="m">η<sub>II</sub> = <span class="fr"><span>ṁ<sub>2</sub>(ψ<sub>3</sub> − ψ<sub>2</sub>)</span><span>ṁ<sub>1</sub>(ψ<sub>1</sub> − ψ<sub>3</sub>)</span></span></td></tr>
+</table>
+<div class="note"><b>Hava tankı örneği (slayt):</b> 0.9 kg hava 20 °C → 55 °C'ye pervane işiyle ısıtılıyor: harcanan iş <span class="m">W = ΔU = 21.4 kJ</span>, ama tersinir bir ısı pompası aynı etkiyi yalnızca ≈ <b>1.2 kJ</b> işle yapabilirdi. Aradaki fark yok olan ekserjidir.</div>
+</div>
+</section>
+<section id="sorular"><h2><span class="num">7</span>Çözümlü Sorular</h2><div class="prob"><div class="ph"><span class="tag">Soru 1</span><div><div class="topic">Kinetik enerjinin ekserjisi</div><p class="q">12 m çaplı rüzgâr türbini, rüzgârın sürekli 10 m/s estiği yere kurulacak. Kullanılabilir (en büyük) güç? (ρ<sub>hava</sub> = 1.18 kg/m³)</p></div><button class="done" data-id="p1">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>D = 12 m</span><span>V = 10 m/s</span><span>ρ = 1.18 kg/m³</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Rüzgâr havası çevreyle aynı T ve P'de, sadece hızı var. Durunca ölü hale gelir ⟹ ekserjisi = kinetik enerjisi.</li><li><span class='m'>ke = <span class="fr"><span>V²</span><span>2</span></span> = <span class="fr"><span>10²</span><span>2</span></span>·<span class="fr"><span>1</span><span>1000</span></span> = 0.05 kJ/kg</span></li><li><span class='m'>ṁ = ρ<span class="fr"><span>πD²</span><span>4</span></span>V = 1.18 × <span class="fr"><span>π(12)²</span><span>4</span></span> × 10 = 1335 kg/s</span></li><li><span class='m'>Ẇ<sub>maks</sub> = ṁ·ke = 1335 × 0.05</span></li></ol><div><span class="ans">Ẇ<sub>maks</sub> = 66.7 kW</span></div><div class="note"><b>Not:</b> Gerçek rüzgâr türbinleri bu değerin ancak %20–40'ını elektriğe çevirebilir.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 2</span><div><div class="topic">Isı makinesi · tersinir güç ve tersinmezlik</div><p class="q">Isı makinesi 1200 K kaynaktan 500 kJ/s ısı alıp 300 K ortama veriyor; gücü 180 kW. Tersinir güç ve tersinmezlik?</p></div><button class="done" data-id="p2">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>T<sub>H</sub> = 1200 K</span><span>T<sub>L</sub> = 300 K</span><span>Q̇<sub>g</sub> = 500 kW</span><span>Ẇ<sub>y</sub> = 180 kW</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Tersinir iş = aynı depolar arası Carnot makinesinin işi: <span class='m'>Ẇ<sub>tr</sub> = (1 − <span class="fr"><span>T<sub>L</sub></span><span>T<sub>H</sub></span></span>)Q̇<sub>g</sub> = (1 − <span class="fr"><span>300</span><span>1200</span></span>)(500) = 375 kW</span></li><li><span class='m'>İ = Ẇ<sub>tr</sub> − Ẇ<sub>y</sub> = 375 − 180 = 195 kW</span></li></ol><div><span class="ans">Ẇ<sub>tr</sub> = 375 kW</span> <span class="ans">İ = 195 kW</span></div><div class="note"><b>Not:</b> Kuyuya giden 500 − 375 = 125 kW zaten işe çevrilemez; tersinmezlik sayılmaz. η<sub>II</sub> = 180/375 = %48.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 3</span><div><div class="topic">İş olmayan sistemde tersinir iş</div><p class="q">500 kg demir külçe 200 °C'den, 27 °C'deki çevre havayla ısıl dengeye geliyor. Tersinir iş ve tersinmezlik? (c = 0.45 kJ/kg·K)</p></div><button class="done" data-id="p3">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>m = 500 kg</span><span>T<sub>1</sub> = 473 K</span><span>T<sub>0</sub> = 300 K</span><span>c = 0.45 kJ/kg·K</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Süreçte iş yok ama iş potansiyeli var. Külçe ile çevre arasında sonsuz küçük Carnot makineleri düşün: <span class='m'>δW<sub>tr</sub> = (1 − T<sub>0</sub>/T)δQ<sub>g</sub></span></li><li><span class='m'>δQ<sub>g</sub> = −mc dT</span> ile integral: <span class='m'>W<sub>tr</sub> = mc(T<sub>1</sub> − T<sub>0</sub>) − mcT<sub>0</sub> ln<span class="fr"><span>T<sub>1</sub></span><span>T<sub>0</sub></span></span></span></li><li><span class='m'>W<sub>tr</sub> = (500)(0.45)[(473 − 300) − 300 ln(473/300)] = 8191 kJ</span></li><li>Yararlı iş yok (W<sub>y</sub> = 0): <span class='m'>I = W<sub>tr</sub> − W<sub>y</sub> = 8191 kJ</span></li></ol><div><span class="ans">W<sub>tr</sub> = 8191 kJ</span> <span class="ans">I = 8191 kJ</span></div><div class="note"><b>Not:</b> Bu, külçenin başlangıçtaki ekserjisidir; hepsi ısı geçişi sırasında yok oldu.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 4</span><div><div class="topic">İkinci yasa verimi · elektrikli ısıtıcı</div><p class="q">Bir satıcı %100 verimli elektrikli ısıtıcı sattığını ilan ediyor. İç ortam 21 °C, dış ortam 10 °C ise ısıtıcının ikinci yasa verimi?</p></div><button class="done" data-id="p4">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>T<sub>H</sub> = 294 K</span><span>T<sub>L</sub> = 283 K</span><span>COP<sub>ısıtıcı</sub> = 1</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Satıcının %100'ü birinci yasa verimidir: 1 birim elektrik → 1 birim ısı ⟹ COP = 1.</li><li>Tersinir ısı pompası: <span class='m'>COP<sub>IP,tr</sub> = <span class="fr"><span>1</span><span>1 − T<sub>L</sub>/T<sub>H</sub></span></span> = <span class="fr"><span>1</span><span>1 − 283/294</span></span> = 26.7</span></li><li><span class='m'>η<sub>II</sub> = <span class="fr"><span>COP</span><span>COP<sub>tr</sub></span></span> = <span class="fr"><span>1.0</span><span>26.7</span></span> = 0.037</span></li></ol><div><span class="ans">η<sub>II</sub> = %3.7</span></div><div class="note"><b>Not:</b> Birinci yasaya göre mükemmel, ikinci yasaya göre çok kötü: elektriği doğrudan ısıya çevirmek ekserjiyi boşa harcar.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 5</span><div><div class="topic">Kapalı sistem · su buharı (tam analiz)</div><p class="q">Piston-silindirde 1 MPa, 300 °C'de 0.05 kg buhar, 200 kPa ve 150 °C'ye genişliyor; çevreye 2 kJ ısı kaybı var. T<sub>0</sub> = 25 °C, P<sub>0</sub> = 100 kPa. (a) İlk ve son ekserji, (b) tersinir iş, (c) tersinmezlik, (d) η<sub>II</sub>?</p></div><button class="done" data-id="p5">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>m = 0.05 kg</span><span>1: 1 MPa, 300 °C</span><span>2: 200 kPa, 150 °C</span><span>Q<sub>ç</sub> = 2 kJ</span><span>T<sub>0</sub> = 298 K, P<sub>0</sub> = 100 kPa</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Özelikler — Hal 1: <span class='m'>u<sub>1</sub> = 2793.7, v<sub>1</sub> = 0.25799, s<sub>1</sub> = 7.1246</span>; Hal 2: <span class='m'>u<sub>2</sub> = 2577.1, v<sub>2</sub> = 0.95986, s<sub>2</sub> = 7.2810</span>; Ölü hal (25 °C sıvı): <span class='m'>u<sub>0</sub> = 104.83, v<sub>0</sub> = 0.00103, s<sub>0</sub> = 0.3672</span></li><li><span class='m'>X<sub>1</sub> = m[(u<sub>1</sub> − u<sub>0</sub>) − T<sub>0</sub>(s<sub>1</sub> − s<sub>0</sub>) + P<sub>0</sub>(v<sub>1</sub> − v<sub>0</sub>)]</span> = 0.05[2688.9 − 298(6.7574) + 100(0.25696)] = <b>35.0 kJ</b></li><li>Aynı şekilde <span class='m'>X<sub>2</sub> = 25.4 kJ</span></li><li>(b) <span class='m'>W<sub>tr</sub> = X<sub>1</sub> − X<sub>2</sub> = 35.0 − 25.4 = 9.6 kJ</span> (ekserjideki azalma)</li><li>(c) 1. yasa: <span class='m'>W<sub>b,ç</sub> = −Q<sub>ç</sub> − m(u<sub>2</sub> − u<sub>1</sub>) = −2 − 0.05(2577.1 − 2793.7) = 8.8 kJ</span></li><li>Yararlı iş: <span class='m'>W<sub>y</sub> = W<sub>b</sub> − P<sub>0</sub>m(v<sub>2</sub> − v<sub>1</sub>) = 8.8 − 100(0.05)(0.70187) = 5.3 kJ</span></li><li><span class='m'>X<sub>yok olan</sub> = X<sub>1</sub> − X<sub>2</sub> − W<sub>y</sub> = 35.0 − 25.4 − 5.3 = 4.3 kJ</span></li><li>Kontrol (diğer yol): <span class='m'>X<sub>yok</sub> = T<sub>0</sub>[m(s<sub>2</sub> − s<sub>1</sub>) + Q<sub>ç</sub>/T<sub>0</sub>] = 298[0.05(0.1564) + 2/298] = 4.3 kJ</span> ✓</li><li>(d) <span class='m'>η<sub>II</sub> = <span class="fr"><span>W<sub>y</sub></span><span>X<sub>1</sub> − X<sub>2</sub></span></span> = <span class="fr"><span>5.3</span><span>9.6</span></span> = 0.552</span></li></ol><div><span class="ans">X<sub>1</sub> = 35.0 kJ</span> <span class="ans">X<sub>2</sub> = 25.4 kJ</span> <span class="ans">W<sub>tr</sub> = 9.6 kJ</span> <span class="ans">I = 4.3 kJ</span> <span class="ans">η<sub>II</sub> = %55.2</span></div><div class="note"><b>Not:</b> Bu soru sınav formatına en yakın olanıdır: önce 3 halin (1, 2, ölü) özeliklerini tablo halinde çıkar, sonra sırayla ilerle.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 6</span><div><div class="topic">Demir + su · ekserji yok oluşu</div><p class="q">350 °C'deki 5 kg demir külçe, 30 °C'de 100 kg su bulunan yalıtılmış kaba konuyor. (a) Denge sıcaklığı, (b) ilk ve son toplam ekserji, (c) yitirilen iş potansiyeli? (c<sub>demir</sub> = 0.45, c<sub>su</sub> = 4.18 kJ/kg·K; T<sub>0</sub> = 20 °C, P<sub>0</sub> = 100 kPa)</p></div><button class="done" data-id="p6">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>Demir: 5 kg, 350 °C</span><span>Su: 100 kg, 30 °C</span><span>T<sub>0</sub> = 293 K</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>(a) Yalıtılmış, iş yok ⟹ ΔU = 0: <span class='m'>(5)(0.45)(T<sub>f</sub> − 350) + (100)(4.18)(T<sub>f</sub> − 30) = 0</span> ⟹ <span class='m'>T<sub>f</sub> = 31.7 °C</span></li><li>(b) Katı/sıvı için <span class='m'>X = mc[(T − T<sub>0</sub>) − T<sub>0</sub> ln(T/T<sub>0</sub>)]</span></li><li><span class='m'>X<sub>1,demir</sub> = 2.25[(623 − 293) − 293 ln(623/293)] = 245.2 kJ</span>, &nbsp; <span class='m'>X<sub>1,su</sub> = 418[(303 − 293) − 293 ln(303/293)] = 69.8 kJ</span> ⟹ <span class='m'>X<sub>1</sub> = 315 kJ</span></li><li>Son hal (304.7 K): <span class='m'>X<sub>2,demir</sub> = 0.5 kJ, X<sub>2,su</sub> = 95.2 kJ</span> ⟹ <span class='m'>X<sub>2</sub> = 95.7 kJ</span></li><li>(c) Ekserji dengesi (giriş/çıkış yok): <span class='m'>X<sub>yok olan</sub> = X<sub>1</sub> − X<sub>2</sub> = 315 − 95.7</span></li></ol><div><span class="ans">T<sub>f</sub> = 31.7 °C</span> <span class="ans">X<sub>1</sub> = 315 kJ</span> <span class="ans">X<sub>2</sub> = 95.7 kJ</span> <span class="ans">X<sub>yok</sub> = 219.3 kJ</span></div><div class="note"><b>Not:</b> Slayttaki soru metninde çevre 25 °C yazıyor ama çözüm (ve şekil) 20 °C ile yapılmış. 25 °C alınırsa: X<sub>1</sub> ≈ 254.1 kJ, X<sub>2</sub> ≈ 31.3 kJ, X<sub>yok</sub> ≈ 222.8 kJ. Hocanın hangi değeri istediğine dikkat et.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 7</span><div><div class="topic">Argon · dış kaynaktan ısı</div><p class="q">Sürtünmesiz piston-silindirde 400 K, 350 kPa'da 0.01 m³ argon var. 1200 K'deki kaynaktan ısı alıp sabit sıcaklıkta hacmi iki katına çıkıyor. Çevre 300 K, 100 kPa (argon ile çevre arasında ısı geçişi yok). (a) Yararlı iş, (b) tersinir iş, (c) tersinmezlik?</p></div><button class="done" data-id="p7">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>T = 400 K (sabit)</span><span>P<sub>1</sub> = 350 kPa</span><span>V<sub>1</sub> = 0.01 m³, V<sub>2</sub> = 0.02 m³</span><span>T<sub>R</sub> = 1200 K</span><span>T<sub>0</sub> = 300 K, P<sub>0</sub> = 100 kPa</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>(a) İzotermal sınır işi: <span class='m'>W<sub>b</sub> = P<sub>1</sub>V<sub>1</sub> ln(V<sub>2</sub>/V<sub>1</sub>) = 350(0.01) ln 2 = 2.43 kJ</span></li><li><span class='m'>W<sub>çevre</sub> = P<sub>0</sub>(V<sub>2</sub> − V<sub>1</sub>) = 100(0.01) = 1 kJ</span> ⟹ <span class='m'>W<sub>y</sub> = 2.43 − 1 = 1.43 kJ</span></li><li>İzotermal mükemmel gaz ⟹ ΔU = 0 ⟹ <span class='m'>Q = W<sub>b</sub> = 2.43 kJ</span></li><li>(b) X<sub>yok</sub> = 0 ile ekserji dengesi: <span class='m'>W<sub>tr,ç</sub> = T<sub>0</sub><span class="fr"><span>Q</span><span>T<sub>sis</sub></span></span> − W<sub>çevre</sub> + (1 − <span class="fr"><span>T<sub>0</sub></span><span>T<sub>R</sub></span></span>)Q</span></li><li><span class='m'>= 300<span class="fr"><span>2.43</span><span>400</span></span> − 1 + (1 − <span class="fr"><span>300</span><span>1200</span></span>)(2.43) = 2.65 kJ</span></li><li>(c) <span class='m'>X<sub>yok</sub> = W<sub>tr</sub> − W<sub>y</sub> = 2.65 − 1.43 = 1.22 kJ</span></li><li>Kontrol: <span class='m'>S<sub>üret</sub> = <span class="fr"><span>Q</span><span>T<sub>sis</sub></span></span> − <span class="fr"><span>Q</span><span>T<sub>R</sub></span></span> = <span class="fr"><span>2.43</span><span>400</span></span> − <span class="fr"><span>2.43</span><span>1200</span></span> = 0.00405 kJ/K</span> ⟹ <span class='m'>T<sub>0</sub>S<sub>üret</sub> = 1.22 kJ</span> ✓</li></ol><div><span class="ans">W<sub>y</sub> = 1.43 kJ</span> <span class="ans">W<sub>tr</sub> = 2.65 kJ</span> <span class="ans">X<sub>yok</sub> = 1.22 kJ</span></div><div class="note"><b>Not:</b> Tersinmezliğin kaynağı 1200 K'deki kaynak ile 400 K'deki argon arasındaki büyük sıcaklık farkıdır.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 8</span><div><div class="topic">Buhar türbini · ekserji analizi</div><p class="q">Buhar türbine 3 MPa, 450 °C'de girip 200 kPa, 150 °C'de çıkıyor; debi 8 kg/s. Türbinden çevreye (25 °C, 100 kPa) 300 kW ısı kaybı var; Δke, Δpe ihmal. (a) Güç, (b) en büyük güç, (c) η<sub>II</sub>, (d) tersinmezlik, (e) girişteki akış ekserjisi?</p></div><button class="done" data-id="p8">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>ṁ = 8 kg/s</span><span>1: 3 MPa, 450 °C</span><span>2: 200 kPa, 150 °C</span><span>Q̇<sub>ç</sub> = 300 kW</span><span>T<sub>0</sub> = 298 K</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Özelikler: <span class='m'>h<sub>1</sub> = 3344.9, s<sub>1</sub> = 7.0856</span>; <span class='m'>h<sub>2</sub> = 2769.1, s<sub>2</sub> = 7.2810</span>; ölü hal <span class='m'>h<sub>0</sub> = 104.83, s<sub>0</sub> = 0.3672</span></li><li>(a) Enerji dengesi: <span class='m'>Ẇ<sub>ç</sub> = ṁ(h<sub>1</sub> − h<sub>2</sub>) − Q̇<sub>ç</sub> = 8(3344.9 − 2769.1) − 300 = 4306 kW</span></li><li>(b) Ekserji dengesi, X<sub>yok</sub> = 0 (ısı T<sub>0</sub>'da atıldığından ekserjisi 0): <span class='m'>Ẇ<sub>tr</sub> = ṁ[(h<sub>1</sub> − h<sub>2</sub>) − T<sub>0</sub>(s<sub>1</sub> − s<sub>2</sub>)]</span></li><li><span class='m'>= 8[(575.8) − 298(7.0856 − 7.2810)] = 5072 kW</span></li><li>(c) <span class='m'>η<sub>II</sub> = <span class="fr"><span>Ẇ<sub>ç</sub></span><span>Ẇ<sub>tr</sub></span></span> = <span class="fr"><span>4306</span><span>5072</span></span> = 0.849</span></li><li>(d) <span class='m'>Ẋ<sub>yok</sub> = Ẇ<sub>tr</sub> − Ẇ<sub>ç</sub> = 5072 − 4306 = 766 kW</span></li><li>(e) <span class='m'>ψ<sub>1</sub> = (h<sub>1</sub> − h<sub>0</sub>) − T<sub>0</sub>(s<sub>1</sub> − s<sub>0</sub>) = (3344.9 − 104.83) − 298(7.0856 − 0.3672) = 1238 kJ/kg</span></li></ol><div><span class="ans">Ẇ = 4306 kW</span> <span class="ans">Ẇ<sub>tr</sub> = 5072 kW</span> <span class="ans">η<sub>II</sub> = %84.9</span> <span class="ans">Ẋ<sub>yok</sub> = 766 kW</span> <span class="ans">ψ<sub>1</sub> = 1238 kJ/kg</span></div><div class="note"><b>Not:</b> Giriş buharının toplam güç potansiyeli 8 × 1238 = 9904 kW; türbin bunun yalnızca 4306/9904 ≈ %43.4'ünü yararlı güce çeviriyor (çıkan buhar da hâlâ ekserji taşıyor).</div></details></div></div></section>
+<section id="kavram"><h2><span class="num">8</span>Kavram Soruları</h2><div class="card"><div class="qa"><b>Atmosferin enerjisi çok büyük. Neden ekserjisi sıfırdır?</b><details><summary>Cevap</summary><div class="a">Çünkü atmosfer zaten ölü haldedir (T<sub>0</sub>, P<sub>0</sub>); onunla dengede olan bir sistemden iş elde edilemez.</div></details></div><div class="qa"><b>Bir sistemin ekserji değişimi negatif olabilir mi? Ekserji yok oluşu?</b><details><summary>Cevap</summary><div class="a">Sistemin ekserji değişimi negatif olabilir (ör. sistem soğurken). Ekserji yok oluşu ise asla negatif olamaz (X<sub>yok</sub> = T<sub>0</sub>S<sub>üretim</sub> ≥ 0).</div></details></div><div class="qa"><b>Birinci yasa verimi ile ikinci yasa verimi arasındaki fark nedir?</b><details><summary>Cevap</summary><div class="a">Birinci yasa verimi enerjinin <b>niceliğini</b> karşılaştırır; ikinci yasa verimi gerçek performansı <b>tersinir (en iyi mümkün)</b> performansla kıyaslar. Elektrikli ısıtıcı: η<sub>I</sub> = %100, η<sub>II</sub> ≈ %4.</div></details></div><div class="qa"><b>Isıyla ekserji geçişi formülündeki (1 − T<sub>0</sub>/T) ne anlama gelir?</b><details><summary>Cevap</summary><div class="a">T sıcaklığındaki ısının, T<sub>0</sub> çevresinde çalışan Carnot makinesiyle işe dönüşebilecek oranıdır. T = T<sub>0</sub> ise ısının ekserjisi sıfırdır.</div></details></div><div class="qa"><b>Kapalı sistemde yararlı iş neden toplam işten küçüktür?</b><details><summary>Cevap</summary><div class="a">Genişleyen sistem atmosferi itmek için P<sub>0</sub>(V<sub>2</sub> − V<sub>1</sub>) kadar iş yapar; bu iş kullanılamaz. Sabit hacimli sistemde ikisi eşittir.</div></details></div><div class="qa"><b>Tersinmezlik ile yok olan ekserji aynı şey mi?</b><details><summary>Cevap</summary><div class="a">Evet. Tersinmezlik = kayıp iş = yok olan ekserji = T<sub>0</sub>S<sub>üretim</sub>. İş üreten cihazda W<sub>tr</sub> − W<sub>y</sub>, iş tüketende W<sub>y</sub> − W<sub>tr</sub>.</div></details></div></div></section>
+<section id="formul"><h2><span class="num">9</span>Formül Kartı</h2>
+<div class="card sheet"><div class="grid">
+<div><h4>Ekserji</h4><div class="eq">φ = (u−u<sub>0</sub>) + P<sub>0</sub>(v−v<sub>0</sub>) − T<sub>0</sub>(s−s<sub>0</sub>) + ke + pe</div><div class="eq">ψ = (h−h<sub>0</sub>) − T<sub>0</sub>(s−s<sub>0</sub>) + ke + pe</div><div class="eq">katı: mc[(T−T<sub>0</sub>) − T<sub>0</sub> ln(T/T<sub>0</sub>)]</div></div>
+<div><h4>Geçişler</h4><div class="eq">X<sub>ısı</sub> = (1 − T<sub>0</sub>/T)Q</div><div class="eq">X<sub>iş</sub> = W − P<sub>0</sub>ΔV</div><div class="eq">X<sub>kütle</sub> = mψ</div></div>
+<div><h4>Tersinmezlik</h4><div class="eq">I = X<sub>yok</sub> = T<sub>0</sub>S<sub>üretim</sub></div><div class="eq">I = W<sub>tr</sub> − W<sub>y</sub> (üreten)</div><div class="eq">W<sub>y</sub> = W − P<sub>0</sub>(V<sub>2</sub> − V<sub>1</sub>)</div></div>
+<div><h4>η<sub>II</sub></h4><div class="eq">η<sub>II</sub> = η/η<sub>tr</sub> = COP/COP<sub>tr</sub></div><div class="eq">η<sub>II</sub> = W<sub>y</sub>/W<sub>tr</sub> (üreten)</div><div class="eq">η<sub>II</sub> = W<sub>tr</sub>/W<sub>y</sub> (tüketen)</div></div>
+</div>
+<div class="tip"><b>Ekserji dengesi:</b> X<sub>giren</sub> − X<sub>çıkan</sub> − X<sub>yok olan</sub> = ΔX<sub>sistem</sub>. Tersinir işi bulmak için X<sub>yok olan</sub> = 0 koy.</div>
+<div class="note"><b>Bölüm 7 ile bağ:</b> Önce entropi üretimini bul, sonra T<sub>0</sub> ile çarp — çoğu tersinmezlik sorusu tek satırda kontrol edilebilir.</div>
+</div>
+</section>
+
+<footer>Termodinamik I · ders slaytlarından hazırlanmış özet · tablo değerleri slaytlardaki (Çengel) değerlerdir</footer>
+</main>
+<script>
+function toggleAll(open){document.querySelectorAll('details').forEach(d=>d.open=open)}
+(function(){
+ var key='termo-'+document.body.dataset.page;
+ var st={};try{st=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+ document.querySelectorAll('.done').forEach(function(b){
+  var id=b.dataset.id; if(st[id]){b.classList.add('on');b.textContent='✓ Anladım'}
+  b.addEventListener('click',function(){
+   var on=!b.classList.contains('on'); b.classList.toggle('on',on); b.textContent=on?'✓ Anladım':'Anladım olarak işaretle';
+   st[id]=on; try{localStorage.setItem(key,JSON.stringify(st))}catch(e){}
+   upd();
+  });
+ });
+ function upd(){var t=document.querySelectorAll('.done').length,d=document.querySelectorAll('.done.on').length;var el=document.getElementById('prog');if(el)el.textContent=d+'/'+t+' soru tamam'}
+ upd();
+ window.addEventListener('beforeprint',function(){toggleAll(true)});
+})();
+</script>
+</body></html>

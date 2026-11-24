@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TERMODİNAMİK I · BÖLÜM 5 — Kontrol Hacimleri için Kütle ve Enerji Çözümlemesi</title>
+<style>:root{--a:#0e7490;--a-soft:#e6f6fa;--a-line:#a5dbe6}
+:root{--bg:#f6f8fc;--card:#fff;--ink:#1f2937;--mut:#5b6472;--line:#e5e9f2;
+--ok:#0f9d6b;--okbg:#e9f8f1;--warn:#b45309;--warnbg:#fff7e8;--info:#2563eb;--infobg:#eef4ff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px 60px}
+header.hero{background:linear-gradient(135deg,var(--a-soft) 0%,#ffffff 70%);border-bottom:1px solid var(--line)}
+header.hero .wrap{padding-top:34px;padding-bottom:28px}
+.kicker{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--a);background:#fff;border:1px solid var(--a-line);padding:3px 10px;border-radius:999px}
+h1{font-size:34px;line-height:1.2;margin:12px 0 8px;color:#111827}
+.sub{color:var(--mut);margin:0;max-width:760px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font-size:13px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--mut)}
+nav.toc{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 20px;white-space:nowrap}
+nav.toc a{font-size:14px;color:var(--mut);text-decoration:none;padding:5px 9px;border-radius:8px}
+nav.toc a:hover{background:var(--a-soft);color:var(--a)}
+.toolbar{margin-left:auto;display:flex;gap:6px}
+.btn{font:inherit;font-size:13px;border:1px solid var(--a-line);background:#fff;color:var(--a);border-radius:8px;padding:5px 12px;cursor:pointer}
+.btn:hover{background:var(--a-soft)}
+section{margin-top:40px;scroll-margin-top:64px}
+h2{font-size:24px;margin:0 0 16px;display:flex;align-items:center;gap:10px}
+h2 .num{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:9px;background:var(--a);color:#fff;font-size:16px}
+h3{font-size:18px;margin:22px 0 8px;color:#111827}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:14px 0;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid .card{margin:0}
+.card h3:first-child,.card h4:first-child{margin-top:0}
+h4{margin:0 0 6px;font-size:16px;color:var(--a)}
+p{margin:8px 0}
+ul{margin:6px 0;padding-left:22px}
+li{margin:3px 0}
+.eq{font-family:"Cambria Math","Cambria","Times New Roman",serif;font-size:18px;background:var(--a-soft);border-left:4px solid var(--a);border-radius:8px;padding:10px 16px;margin:10px 0;overflow-x:auto;white-space:nowrap}
+.eq.big{font-size:20px;text-align:center;border-left:none;border:1px dashed var(--a-line)}
+.eq small{font-family:"Segoe UI",system-ui,sans-serif;font-size:13px;color:var(--mut);margin-left:10px}
+.m{font-family:"Cambria Math","Cambria","Times New Roman",serif;font-size:1.06em}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 3px;line-height:1.25}
+.fr>span:first-child{border-bottom:1.3px solid currentColor;padding:0 3px}
+.fr>span:last-child{padding:0 3px}
+sub,sup{font-size:.72em}
+.tip,.note,.warn{border-radius:10px;padding:10px 14px;margin:12px 0;font-size:15px}
+.tip{background:var(--okbg);border:1px solid #bfe9d6}
+.tip b:first-child{color:var(--ok)}
+.warn{background:var(--warnbg);border:1px solid #f6dcae}
+.warn b:first-child{color:var(--warn)}
+.note{background:var(--infobg);border:1px solid #cddcff}
+.note b:first-child{color:var(--info)}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:8px 0}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--a-soft);color:#111827;font-weight:600}
+td.m{white-space:nowrap}
+.card{overflow-x:auto}
+.prob{background:#fff;border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden}
+.prob .ph{display:flex;gap:12px;align-items:flex-start;padding:16px 20px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,var(--a-soft),#fff)}
+.prob .tag{flex:none;font-weight:700;font-size:13px;color:#fff;background:var(--a);border-radius:8px;padding:3px 9px;margin-top:3px}
+.prob .q{margin:0}
+.prob .topic{font-size:12px;color:var(--a);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.prob .body{padding:4px 20px 16px}
+details{margin-top:10px}
+details>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--a);padding:6px 12px;border:1px solid var(--a-line);border-radius:8px;background:#fff;user-select:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"▸";transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+details[open]>summary{background:var(--a-soft)}
+.steps{counter-reset:s;margin:12px 0 0;padding:0;list-style:none}
+.steps>li{counter-increment:s;position:relative;padding:4px 0 8px 36px;border-left:2px solid var(--a-line);margin-left:12px}
+.steps>li::before{content:counter(s);position:absolute;left:-13px;top:4px;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid var(--a);color:var(--a);font-size:12px;font-weight:700;display:grid;place-items:center}
+.given{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.given span{font-family:"Cambria Math","Cambria",serif;background:#f3f4f6;border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:15px}
+.ans{display:inline-block;margin-top:6px;background:var(--okbg);border:1px solid #bfe9d6;color:#065f46;font-weight:700;border-radius:8px;padding:4px 12px;font-family:"Cambria Math","Cambria",serif}
+.done{margin-left:auto;flex:none;font-size:12px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:3px 10px;cursor:pointer;color:var(--mut)}
+.done.on{background:var(--okbg);border-color:#bfe9d6;color:var(--ok)}
+.qa{border-bottom:1px solid var(--line);padding:10px 0}
+.qa:last-child{border-bottom:none}
+.qa details{margin-top:6px}
+.qa details>summary{font-size:14px;padding:3px 10px}
+.qa .a{margin-top:8px;color:#374151}
+.sheet .eq{font-size:16px;margin:6px 0}
+footer{margin-top:50px;color:var(--mut);font-size:13px;text-align:center}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;background:var(--a-soft);color:var(--a);font-weight:600;margin-right:4px}
+@media (max-width:640px){h1{font-size:26px}.eq{font-size:16px}.card{padding:14px 16px}}
+@media print{nav.toc,.btn,.done{display:none}body{background:#fff}.prob,.card{break-inside:avoid}details>summary{display:none}}
+</style></head>
+<body data-page="b5">
+<header class="hero"><div class="wrap">
+<a href="index.html" style="display:inline-block;margin-right:10px;font-size:13px;color:var(--a);text-decoration:none;font-weight:600">← Tüm haftalar</a><span class="kicker">TERMODİNAMİK I · BÖLÜM 5</span>
+<h1>Kontrol Hacimleri için Kütle ve Enerji Çözümlemesi</h1><p class="sub">Açık sistemlerde kütlenin ve enerjinin korunumu; lüle, türbin, kompresör, kısılma vanası, karışma odası, ısı değiştirici ve zamanla değişen akış.</p>
+<div class="chips"><span class="chip">10 çözümlü soru</span><span class="chip">6 kavram sorusu</span><span class="chip">Cihaz tablosu</span><span class="chip">Formül kartı</span><span class="chip" id="prog"></span></div>
+</div></header>
+<nav class="toc"><div class="wrap"><a href="#ozet">Özet</a><a href="#kutle">Kütle</a><a href="#akis">Akış İşi</a><a href="#surekli">Enerji Dengesi</a><a href="#cihaz">Cihazlar</a><a href="#zamanla">Zamanla Değişen</a><a href="#sorular">Sorular</a><a href="#kavram">Kavram</a><a href="#formul">Formül Kartı</a><div class="toolbar"><button class="btn" onclick="toggleAll(true)">Tüm çözümleri aç</button><button class="btn" onclick="toggleAll(false)">Kapat</button></div></div></nav>
+<main class="wrap">
+<section id="ozet"><h2><span class="num">1</span>Özet</h2>
+<div class="grid">
+<div class="card"><h4>Bu haftanın fikri</h4><p>Kapalı sistemde kütle sabitti. <b>Kontrol hacminde (açık sistem)</b> sınırdan kütle girip çıkar; bu kütle yanında enerji de taşır. Bu yüzden hem <b>kütle dengesi</b> hem <b>enerji dengesi</b> yazılır.</p></div>
+<div class="card"><h4>En çok sorulan</h4><ul><li>Sürekli akışlı cihazlar: lüle, yayıcı, türbin, kompresör, kısılma vanası, karışma odası, ısı değiştirici, boru/kanal</li><li>Tablodan <span class="m">h</span> bulup enerji dengesi kurmak</li></ul></div>
+<div class="card"><h4>Altın kural</h4><p>Akan akışkanın enerjisi <span class="m">u</span> değil <span class="m">h</span> ile yazılır, çünkü <span class="m">h = u + Pv</span> akış işini zaten içerir.</p></div>
+</div>
+</section>
+<section id="kutle"><h2><span class="num">2</span>Kütlenin Korunumu</h2>
+<div class="card">
+<h3>Kütle debisi ve hacimsel debi</h3>
+<div class="eq">ṁ = ρ V<sub>ort</sub> A<sub>c</sub> = <span class="fr"><span>V̇</span><span>v</span></span> &nbsp;&nbsp; [kg/s] <small>V̇ = V<sub>ort</sub> A<sub>c</sub> [m³/s], v = 1/ρ</small></div>
+<p><b>Ortalama hız</b> V<sub>ort</sub>: kesit boyunca hızın ortalaması. <b>Hacimsel debi</b>: kesitten birim zamanda geçen hacim.</p>
+<h3>Kütlenin korunumu</h3>
+<div class="eq">m<sub>g</sub> − m<sub>ç</sub> = Δm<sub>KH</sub> &nbsp;&nbsp;⟶&nbsp;&nbsp; ṁ<sub>g</sub> − ṁ<sub>ç</sub> = <span class="fr"><span>dm<sub>KH</sub></span><span>dt</span></span></div>
+<p>Kütle var ya da yok edilemez (kimyasal tepkimede de korunur). Aslında <span class="m">E = mc²</span> gereği enerji değişince kütle de değişir ama mühendislik problemlerinde bu fark ihmal edilecek kadar küçüktür.</p>
+<h3>Sürekli akış (steady)</h3>
+<div class="eq">Σṁ<sub>g</sub> = Σṁ<sub>ç</sub> &nbsp;&nbsp;&nbsp; tek akış: ṁ<sub>1</sub> = ṁ<sub>2</sub> ⟹ ρ<sub>1</sub>V<sub>1</sub>A<sub>1</sub> = ρ<sub>2</sub>V<sub>2</sub>A<sub>2</sub></div>
+<p>Sürekli akışta KH içindeki kütle zamanla değişmez (m<sub>KH</sub> = sabit). Lüle, türbin, kompresör, pompa genelde <b>tek giriş–tek çıkış</b>lıdır.</p>
+<h3>Sıkıştırılamaz akış (sıvılar)</h3>
+<div class="eq">ρ = sabit ⟹ ΣV̇<sub>g</sub> = ΣV̇<sub>ç</sub> &nbsp;&nbsp;&nbsp; V<sub>1</sub>A<sub>1</sub> = V<sub>2</sub>A<sub>2</sub></div>
+<div class="warn"><b>Dikkat:</b> "Hacmin korunumu" diye bir ilke yoktur. Sadece sıvılarda (ρ ≈ sabit) hacimsel debi de sabit kalır. Gazlarda giriş ve çıkış hacimsel debileri farklı olabilir.</div>
+</div>
+</section>
+<section id="akis"><h2><span class="num">3</span>Akış İşi ve Akışkanın Enerjisi</h2>
+<div class="card">
+<h3>Akış işi (akış enerjisi)</h3>
+<p>Kütleyi kontrol hacmine itmek için iş gerekir. Kesit alanı A olan hayali bir piston, P basıncıyla akışkanı L kadar iter:</p>
+<div class="eq">W<sub>akış</sub> = F·L = P A L = P V &nbsp;&nbsp;⟹&nbsp;&nbsp; w<sub>akış</sub> = P v &nbsp;[kJ/kg]</div>
+<h3>Akan akışkanın toplam enerjisi</h3>
+<table><tr><th>Durgun (akışsız) akışkan</th><th>Akan akışkan</th></tr>
+<tr><td class="m">e = u + ke + pe = u + <span class="fr"><span>V²</span><span>2</span></span> + gz</td><td class="m">θ = Pv + e = <b>h</b> + <span class="fr"><span>V²</span><span>2</span></span> + gz</td></tr></table>
+<p>Akışsız ortamda enerji 3 terim, akışta 4 terimdir. Pv terimi entalpinin içinde kendiliğinden yer alır — entalpinin tanımlanmasının asıl nedeni budur.</p>
+<h3>Kütle ile enerji aktarımı</h3>
+<div class="eq">Ė<sub>kütle</sub> = ṁ θ = ṁ (h + <span class="fr"><span>V²</span><span>2</span></span> + gz) &nbsp;[kW]</div>
+<div class="tip"><b>Birim tuzağı:</b> V²/2 m²/s² cinsindendir. kJ/kg'a çevirmek için <b>1000'e böl</b> (1 kJ/kg = 1000 m²/s²).</div>
+</div>
+</section>
+<section id="surekli"><h2><span class="num">4</span>Sürekli Akış Enerji Dengesi</h2>
+<div class="card">
+<h3>Sürekli akışlı açık sistem enerji dengesi</h3>
+<p>Sürekli akışta KH'nin kütlesi ve enerjisi zamanla değişmez: <span class="m">dE<sub>KH</sub>/dt = 0</span>.</p>
+<div class="eq big">Q̇ − Ẇ = Σ<sub>ç</sub> ṁ(h + <span class="fr"><span>V²</span><span>2</span></span> + gz) − Σ<sub>g</sub> ṁ(h + <span class="fr"><span>V²</span><span>2</span></span> + gz)</div>
+<p>Tek giriş – tek çıkış için (birim kütle):</p>
+<div class="eq">q − w = h<sub>2</sub> − h<sub>1</sub> + <span class="fr"><span>V<sub>2</sub>² − V<sub>1</sub>²</span><span>2</span></span> + g(z<sub>2</sub> − z<sub>1</sub>)</div>
+<p>İşaret kuralı: <b>ısı girişi (+), iş çıkışı (+)</b>. Ya da daha güvenlisi: <span class="m">Ė<sub>giren</sub> = Ė<sub>çıkan</sub></span> yazıp her terimi yönüne göre doğru tarafa koymak.</p>
+<div class="note"><b>Basit sıkıştırılabilir</b> sürekli akışlı sistemde sınır işi olmaz; sadece <b>mil işi</b> ve <b>elektrik işi</b> vardır. ke ve pe değişimleri çoğu zaman ihmal edilir ⟹ <span class="m">q − w = Δh</span>.</div>
+</div>
+</section>
+<section id="cihaz"><h2><span class="num">5</span>Sürekli Akışlı Cihazlar</h2>
+<div class="card">
+<p>Bu tablo sınavda en çok kullanacağın şey. Her cihaz için hangi terimler <b>sıfır</b>, hangileri <b>önemli</b> onu ezberle:</p>
+<table>
+<tr><th>Cihaz</th><th>Ne yapar?</th><th>Tipik kabuller</th><th>Sadeleşmiş denklem</th></tr>
+<tr><td><b>Lüle</b></td><td>Basıncı düşürerek hızı artırır</td><td>w = 0, q ≈ 0, Δpe = 0; <b>Δke önemli</b></td><td class="m">h<sub>1</sub> + <span class="fr"><span>V<sub>1</sub>²</span><span>2</span></span> = h<sub>2</sub> + <span class="fr"><span>V<sub>2</sub>²</span><span>2</span></span></td></tr>
+<tr><td><b>Yayıcı (difüzör)</b></td><td>Hızı düşürerek basıncı artırır</td><td>Lüle ile aynı; çoğunlukla V<sub>2</sub> ≈ 0</td><td class="m">h<sub>2</sub> = h<sub>1</sub> + <span class="fr"><span>V<sub>1</sub>² − V<sub>2</sub>²</span><span>2</span></span></td></tr>
+<tr><td><b>Türbin</b></td><td>Akışkan kanatlara iş yapar, mil döner</td><td>q ≈ 0 (adyabatik), Δke, Δpe genelde küçük</td><td class="m">w<sub>ç</sub> = h<sub>1</sub> − h<sub>2</sub></td></tr>
+<tr><td><b>Kompresör / pompa / fan</b></td><td>Mil işiyle basınç yükseltir (pompa: sıvı)</td><td>Δke, Δpe ≈ 0; q olabilir</td><td class="m">Ẇ<sub>g</sub> = ṁ q<sub>ç</sub> + ṁ(h<sub>2</sub> − h<sub>1</sub>)</td></tr>
+<tr><td><b>Kısılma vanası</b> (kılcal boru, gözenekli tıkaç)</td><td>Kesiti daraltıp basıncı büyük ölçüde düşürür</td><td>q = 0, w = 0, Δke, Δpe ≈ 0</td><td class="m"><b>h<sub>1</sub> = h<sub>2</sub></b> (izentalpik)</td></tr>
+<tr><td><b>Karışma odası</b></td><td>İki akışı karıştırır (ör. duş T-bağlantısı)</td><td>Adyabatik, w = 0, P sabit</td><td class="m">ṁ<sub>1</sub>h<sub>1</sub> + ṁ<sub>2</sub>h<sub>2</sub> = ṁ<sub>3</sub>h<sub>3</sub></td></tr>
+<tr><td><b>Isı değiştirici</b></td><td>İki akış karışmadan ısı alışverişi</td><td>w = 0, dış yüzey yalıtılmış</td><td class="m">ṁ<sub>A</sub>(h<sub>1</sub>−h<sub>2</sub>) = ṁ<sub>B</sub>(h<sub>4</sub>−h<sub>3</sub>)</td></tr>
+<tr><td><b>Boru / kanal</b></td><td>Akışkan taşır</td><td>Isı kaybı önemli olabilir; elektrikli ısıtıcı/pompa işi olabilir</td><td class="m">Ẇ<sub>e,g</sub> − Q̇<sub>ç</sub> = ṁ c<sub>p</sub>(T<sub>2</sub> − T<sub>1</sub>)</td></tr>
+</table>
+<div class="tip"><b>Kısılma:</b> Mükemmel gazda <span class="m">h = h(T)</span> olduğu için kısılmada sıcaklık değişmez. Gerçek akışkanlarda (R-134a gibi) basınçla birlikte sıcaklık da çok düşer — buzdolabı bu yüzden çalışır. Entalpi sabit kalsa da iç enerji ile akış işi (Pv) birbirine dönüşebilir.</div>
+<div class="note"><b>Türbin ile kısılma vanası farkı:</b> İkisi de basıncı düşürür; türbin bu sırada <b>iş üretir</b> (h düşer), kısılma vanası iş üretmez (h sabit).</div>
+<div class="note"><b>Isı değiştiricide KH seçimi:</b> Tüm cihazı KH alırsan Q̇ = 0 olur (yalıtılmışsa). Tek akışkanı KH alırsan, diğer akışkana geçen ısı Q̇ olarak denkleme girer.</div>
+</div>
+</section>
+<section id="zamanla"><h2><span class="num">6</span>Zamanla Değişen Akış</h2>
+<div class="card">
+<p><b>Zamanla değişen (geçici, unsteady) açık sistem:</b> KH içindeki kütle/enerji zamanla değişir. Örnek: bir tüpün hattan doldurulması, basınçlı kabın boşaltılması. KH'nin biçimi ve hacmi de değişebilir.</p>
+<p><b>Düzgün akış (uniform flow) modeli:</b> Her giriş/çıkıştaki akışkan özellikleri zamanla değişmez (değişiyorsa ortalaması alınır).</p>
+<div class="eq">Kütle: m<sub>g</sub> − m<sub>ç</sub> = (m<sub>2</sub> − m<sub>1</sub>)<sub>KH</sub></div>
+<div class="eq big">(Q<sub>g</sub> + W<sub>g</sub> + Σ<sub>g</sub> mθ) − (Q<sub>ç</sub> + W<sub>ç</sub> + Σ<sub>ç</sub> mθ) = (m<sub>2</sub>e<sub>2</sub> − m<sub>1</sub>e<sub>1</sub>)<sub>sistem</sub></div>
+<p><span class="m">θ = h + ke + pe</span> (akan kütle), <span class="m">e = u + ke + pe</span> (KH içindeki kütle). ke ve pe ihmal edilirse:</p>
+<div class="eq">Q − W = Σ<sub>ç</sub> m h − Σ<sub>g</sub> m h + (m<sub>2</sub>u<sub>2</sub> − m<sub>1</sub>u<sub>1</sub>)<sub>KH</sub></div>
+<div class="tip"><b>Klasik sonuç:</b> Boş, yalıtılmış bir tankı sabit hattan doldurursan: <span class="m">h<sub>hat</sub> = u<sub>2</sub></span>. Tanktaki gazın son sıcaklığı hattakinden yüksek olur (mükemmel gazda T<sub>2</sub> = k·T<sub>hat</sub>).</div>
+<p>Giriş ve çıkışlar kapatılınca denklem kapalı sistem denklemine (Q − W = ΔU) dönüşür. Elektrik işi, mil işi ve sınır işi birlikte bulunabilir.</p>
+</div>
+</section>
+<section id="sorular"><h2><span class="num">7</span>Çözümlü Sorular</h2><div class="prob"><div class="ph"><span class="tag">Soru 1</span><div><div class="topic">Kütle debisi · sıkıştırılamaz akış</div><p class="q">Bir bahçe hortumuna 40 L'lik bir kovayı doldurmak için fıskiye takılmıştır. Hortum iç çapı 2 cm, lüle çıkışında 0.8 cm'ye düşmektedir. Kova 50 s'de doluyor. (a) Kütle debisini, (b) fıskiye çıkışındaki ortalama hızı bulun.</p></div><button class="done" data-id="p1">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>V = 40 L</span><span>Δt = 50 s</span><span>D<sub>ç</sub> = 0.8 cm</span><span>ρ<sub>su</sub> ≈ 1 kg/L</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Hacimsel debi: <span class='m'>V̇ = <span class="fr"><span>V</span><span>Δt</span></span> = <span class="fr"><span>40 L</span><span>50 s</span></span> = 0.8 L/s</span></li><li>Su sıkıştırılamaz, ρ = 1 kg/L: <span class='m'>ṁ = ρV̇ = (1)(0.8) = 0.8 kg/s</span></li><li>Çıkış kesit alanı: <span class='m'>A<sub>ç</sub> = πr² = π(0.4 cm)² = 0.5027 cm² = 0.5027×10<sup>−4</sup> m²</span></li><li>Çıkış hızı: <span class='m'>V<sub>ç</sub> = <span class="fr"><span>V̇</span><span>A<sub>ç</sub></span></span> = <span class="fr"><span>0.8×10<sup>−3</sup> m³/s</span><span>0.5027×10<sup>−4</sup> m²</span></span> = 15.9 m/s</span></li></ol><div><span class="ans">ṁ = 0.8 kg/s</span> <span class="ans">V<sub>ç</sub> = 15.9 m/s</span></div><div class="note"><b>Not:</b> Hortum çapı (2 cm) sonucu etkilemez — kütle debisi hortum boyunca her kesitte aynıdır.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 2</span><div><div class="topic">Akış enerjisi · toplam enerji</div><p class="q">Çalışma basıncı 150 kPa olan 4 L'lik düdüklü tencereden buhar çıkıyor. Sürekli çalışmada 40 dakikada sıvı miktarı 0.6 L azalıyor. Çıkış kesiti 0.8 mm². (a) Buharın kütle debisi ve çıkış hızı, (b) birim kütle akış enerjisi ve toplam enerjisi, (c) buharın tencereyi terk ettiği enerji oranı?</p></div><button class="done" data-id="p2">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>P = 150 kPa (doymuş)</span><span>ΔV<sub>sıvı</sub> = 0.6 L</span><span>Δt = 40 dak</span><span>A<sub>c</sub> = 0.8 mm²</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>150 kPa doymuş tablosundan (Tablo A-5): <span class='m'>v<sub>f</sub> = 0.001053, v<sub>g</sub> = 1.1594 m³/kg, u<sub>g</sub> = 2519.2, h<sub>g</sub> = 2693.1 kJ/kg</span></li><li>Buharlaşan kütle: <span class='m'>m = <span class="fr"><span>ΔV<sub>sıvı</sub></span><span>v<sub>f</sub></span></span> = <span class="fr"><span>0.6×10<sup>−3</sup></span><span>0.001053</span></span> = 0.570 kg</span></li><li>Debi: <span class='m'>ṁ = <span class="fr"><span>0.570 kg</span><span>40 dak</span></span> = 0.0142 kg/dak = 2.37×10<sup>−4</sup> kg/s</span></li><li>Hız: <span class='m'>V = <span class="fr"><span>ṁ v<sub>g</sub></span><span>A<sub>c</sub></span></span> = <span class="fr"><span>(2.37×10<sup>−4</sup>)(1.1594)</span><span>0.8×10<sup>−6</sup></span></span> = 34.3 m/s</span></li><li>Akış enerjisi: <span class='m'>e<sub>akış</sub> = Pv = h − u = 2693.1 − 2519.2 = 173.9 kJ/kg</span></li><li>Toplam enerji (ke, pe küçük): <span class='m'>θ = h + ke + pe ≅ h = 2693.1 kJ/kg</span></li><li>Kütleyle taşınan enerji oranı: <span class='m'>Ė<sub>kütle</sub> = ṁθ = (2.37×10<sup>−4</sup>)(2693.1) = 0.638 kW</span></li></ol><div><span class="ans">ṁ = 2.37×10⁻⁴ kg/s</span> <span class="ans">V = 34.3 m/s</span> <span class="ans">e<sub>akış</sub> = 173.9 kJ/kg</span> <span class="ans">θ ≅ 2693.1 kJ/kg</span> <span class="ans">Ė = 0.638 kW</span></div><div class="note"><b>Not:</b> Kontrol: ke = 34.3²/2000 = 0.59 kJ/kg ≪ 2693 kJ/kg, yani ihmal etmek doğru.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 3</span><div><div class="topic">Yayıcı</div><p class="q">10 °C ve 80 kPa'daki hava jet motoru yayıcısına 200 m/s ile giriyor. Giriş kesiti 0.4 m², çıkış hızı girişe göre çok küçük. (a) Kütle debisi, (b) çıkış sıcaklığı?</p></div><button class="done" data-id="p3">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>T<sub>1</sub> = 283 K</span><span>P<sub>1</sub> = 80 kPa</span><span>V<sub>1</sub> = 200 m/s</span><span>A<sub>1</sub> = 0.4 m²</span><span>V<sub>2</sub> ≈ 0</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Hava mükemmel gaz: <span class='m'>v<sub>1</sub> = <span class="fr"><span>RT<sub>1</sub></span><span>P<sub>1</sub></span></span> = <span class="fr"><span>(0.287)(283)</span><span>80</span></span> = 1.015 m³/kg</span></li><li><span class='m'>ṁ = <span class="fr"><span>1</span><span>v<sub>1</sub></span></span> V<sub>1</sub>A<sub>1</sub> = <span class="fr"><span>(200)(0.4)</span><span>1.015</span></span> = 78.8 kg/s</span></li><li>Yayıcıda q = 0, w = 0, Δpe = 0: <span class='m'>h<sub>1</sub> + <span class="fr"><span>V<sub>1</sub>²</span><span>2</span></span> = h<sub>2</sub> + <span class="fr"><span>V<sub>2</sub>²</span><span>2</span></span></span></li><li>Tablo A-17: <span class='m'>h<sub>1</sub> = h<sub>@283 K</sub> = 283.14 kJ/kg</span></li><li><span class='m'>h<sub>2</sub> = 283.14 + <span class="fr"><span>200² − 0</span><span>2</span></span>·<span class="fr"><span>1</span><span>1000</span></span> = 283.14 + 20 = 303.14 kJ/kg</span></li><li>Tablo A-17'den bu entalpiye karşılık gelen sıcaklık: <span class='m'>T<sub>2</sub> ≈ 303 K</span></li></ol><div><span class="ans">ṁ = 78.8 kg/s</span> <span class="ans">T<sub>2</sub> ≈ 303 K</span></div><div class="note"><b>Not:</b> Hız neredeyse sıfıra inince kinetik enerji entalpiye dönüştü; sıcaklık 20 K arttı. (c<sub>p</sub> ile kaba kontrol: ΔT = 20/1.005 ≈ 20 K ✓)</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 4</span><div><div class="topic">Lüle (ısı kaybı var)</div><p class="q">Su buharı, giriş kesiti 0.02 m² olan lüleye 1.8 MPa ve 400 °C'de giriyor. Debi 4.5 kg/s; çıkış 1.4 MPa ve 275 m/s. Lüleden çevreye ısı kaybı 2.6 kJ/kg. (a) Giriş hızı, (b) çıkış sıcaklığı?</p></div><button class="done" data-id="p4">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>P<sub>1</sub> = 1.8 MPa, T<sub>1</sub> = 400 °C</span><span>A<sub>1</sub> = 0.02 m²</span><span>ṁ = 4.5 kg/s</span><span>P<sub>2</sub> = 1.4 MPa</span><span>V<sub>2</sub> = 275 m/s</span><span>q<sub>ç</sub> = 2.6 kJ/kg</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Kızgın buhar tablosu (A-6): <span class='m'>v<sub>1</sub> = 0.16849 m³/kg, h<sub>1</sub> = 3251.6 kJ/kg</span></li><li><span class='m'>V<sub>1</sub> = <span class="fr"><span>ṁ v<sub>1</sub></span><span>A<sub>1</sub></span></span> = <span class="fr"><span>(4.5)(0.16849)</span><span>0.02</span></span> = 37.9 m/s</span></li><li>Enerji dengesi (w = 0, Δpe = 0): <span class='m'>h<sub>1</sub> + <span class="fr"><span>V<sub>1</sub>²</span><span>2</span></span> = h<sub>2</sub> + <span class="fr"><span>V<sub>2</sub>²</span><span>2</span></span> + q<sub>ç</sub></span></li><li><span class='m'>h<sub>2</sub> = 3251.6 − 2.6 − <span class="fr"><span>275² − 37.9²</span><span>2·1000</span></span> = 3249.0 − 37.1 = 3211.9 kJ/kg</span></li><li>P<sub>2</sub> = 1.4 MPa ve h<sub>2</sub> = 3211.9 kJ/kg ile A-6'da interpolasyon (350 °C: 3150.1, 400 °C: 3257.9): <span class='m'>T<sub>2</sub> ≈ 378.6 °C</span></li></ol><div><span class="ans">V<sub>1</sub> ≈ 37.9 m/s</span> <span class="ans">T<sub>2</sub> ≈ 378.6 °C</span></div><div class="note"><b>Not:</b> Slayttaki çözümde ṁ = 5 kg/s ve q = 2.8 kJ/kg kullanılmış (V<sub>1</sub> = 42.1 m/s, T<sub>2</sub> = 378.5 °C çıkıyor). Soru metnindeki verilerle sonuç yukarıdaki gibidir; h<sub>2</sub> ve T<sub>2</sub> neredeyse aynı kalır.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 5</span><div><div class="topic">Kompresör</div><p class="q">100 kPa, 280 K'deki hava sürekli akışlı kompresörde 600 kPa, 400 K'e sıkıştırılıyor. Debi 0.02 kg/s, çevreye ısı kaybı 16 kJ/kg. Δke ve Δpe ihmal. Gerekli güç?</p></div><button class="done" data-id="p5">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>T<sub>1</sub> = 280 K</span><span>T<sub>2</sub> = 400 K</span><span>ṁ = 0.02 kg/s</span><span>q<sub>ç</sub> = 16 kJ/kg</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Ė<sub>g</sub> = Ė<sub>ç</sub>: <span class='m'>Ẇ<sub>g</sub> + ṁh<sub>1</sub> = Q̇<sub>ç</sub> + ṁh<sub>2</sub></span> ⟹ <span class='m'>Ẇ<sub>g</sub> = ṁq<sub>ç</sub> + ṁ(h<sub>2</sub> − h<sub>1</sub>)</span></li><li>Tablo A-17: <span class='m'>h<sub>1</sub> = 280.13 kJ/kg, h<sub>2</sub> = 400.98 kJ/kg</span></li><li><span class='m'>Ẇ<sub>g</sub> = (0.02)(16) + (0.02)(400.98 − 280.13) = 0.32 + 2.42</span></li></ol><div><span class="ans">Ẇ<sub>g</sub> = 2.74 kW</span></div><div class="note"><b>Not:</b> Isı kaybı olduğu için verilmesi gereken iş, sadece entalpi artışından fazladır.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 6</span><div><div class="topic">Türbin · Δh, Δke, Δpe karşılaştırma</div><p class="q">Adyabatik buhar türbininin gücü 5 MW. Giriş: 2 MPa, 400 °C, 50 m/s, z = 10 m. Çıkış: 15 kPa, x = 0.90, 180 m/s, z = 6 m. (a) Δh, Δke, Δpe'yi karşılaştırın, (b) birim kütle işi, (c) kütle debisi?</p></div><button class="done" data-id="p6">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>P<sub>1</sub> = 2 MPa, T<sub>1</sub> = 400 °C</span><span>P<sub>2</sub> = 15 kPa, x<sub>2</sub> = 0.9</span><span>V<sub>1</sub>=50, V<sub>2</sub>=180 m/s</span><span>z<sub>1</sub>=10, z<sub>2</sub>=6 m</span><span>Ẇ<sub>ç</sub> = 5 MW</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Giriş kızgın buhar (A-6): <span class='m'>h<sub>1</sub> = 3248.4 kJ/kg</span></li><li>Çıkış doymuş karışım (A-5, 15 kPa): <span class='m'>h<sub>2</sub> = h<sub>f</sub> + x h<sub>fg</sub> = 225.94 + 0.9(2372.3) = 2361.01 kJ/kg</span></li><li><span class='m'>Δh = 2361.01 − 3248.4 = −887.39 kJ/kg</span></li><li><span class='m'>Δke = <span class="fr"><span>180² − 50²</span><span>2·1000</span></span> = 14.95 kJ/kg</span> &nbsp;&nbsp; <span class='m'>Δpe = <span class="fr"><span>9.81(6 − 10)</span><span>1000</span></span> = −0.04 kJ/kg</span></li><li>Adyabatik türbin: <span class='m'>w<sub>ç</sub> = −(Δh + Δke + Δpe) = −(−887.39 + 14.95 − 0.04) = 872.48 kJ/kg</span></li><li><span class='m'>ṁ = <span class="fr"><span>Ẇ<sub>ç</sub></span><span>w<sub>ç</sub></span></span> = <span class="fr"><span>5000</span><span>872.48</span></span> = 5.73 kg/s</span></li></ol><div><span class="ans">Δh = −887.39</span> <span class="ans">Δke = 14.95</span> <span class="ans">Δpe = −0.04 kJ/kg</span> <span class="ans">w = 872.48 kJ/kg</span> <span class="ans">ṁ = 5.73 kg/s</span></div><div class="note"><b>Not:</b> Sonuç: Δpe tamamen ihmal edilebilir, Δke küçük (≈ %1.7). Türbin problemlerinde ke ve pe'yi ihmal etmek genelde güvenlidir.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 7</span><div><div class="topic">Kısılma vanası</div><p class="q">R-134a buzdolabının kılcal borusuna 0.8 MPa'da doymuş sıvı olarak giriyor ve 0.12 MPa'ya kısılıyor. Çıkıştaki kuruluk derecesi ve sıcaklık düşüşü?</p></div><button class="done" data-id="p7">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>P<sub>1</sub> = 0.8 MPa, doymuş sıvı</span><span>P<sub>2</sub> = 0.12 MPa</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Giriş (A-12): <span class='m'>T<sub>1</sub> = T<sub>doy@0.8 MPa</sub> = 31.31 °C, h<sub>1</sub> = h<sub>f</sub> = 95.47 kJ/kg</span></li><li>Kısılma: <span class='m'>h<sub>2</sub> = h<sub>1</sub> = 95.47 kJ/kg</span></li><li>0.12 MPa'da: <span class='m'>h<sub>f</sub> = 22.49, h<sub>g</sub> = 236.97 kJ/kg, T<sub>doy</sub> = −22.32 °C</span>. h<sub>f</sub> &lt; h<sub>2</sub> &lt; h<sub>g</sub> ⟹ doymuş karışım</li><li><span class='m'>x<sub>2</sub> = <span class="fr"><span>h<sub>2</sub> − h<sub>f</sub></span><span>h<sub>fg</sub></span></span> = <span class="fr"><span>95.47 − 22.49</span><span>236.97 − 22.49</span></span> = 0.340</span></li><li><span class='m'>ΔT = T<sub>2</sub> − T<sub>1</sub> = −22.32 − 31.31 = −53.63 °C</span></li></ol><div><span class="ans">x<sub>2</sub> = 0.340</span> <span class="ans">ΔT = −53.63 °C</span></div><div class="note"><b>Not:</b> Çıkışta akışkanın %34'ü buharlaşmış. Kısılmada iç enerji azalıp Pv artabilir; ama toplamları (h) sabit kalır.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 8</span><div><div class="topic">Karışma odası</div><p class="q">60 °C sıcak su ile 10 °C soğuk su bir duşta karıştırılıyor; karışım 40 °C isteniyor. P = 150 kPa sabit, ısı kaybı yok. Sıcak su debisinin soğuk su debisine oranı y = ṁ₁/ṁ₂ ?</p></div><button class="done" data-id="p8">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>T<sub>1</sub> = 60 °C (sıcak)</span><span>T<sub>2</sub> = 10 °C (soğuk)</span><span>T<sub>3</sub> = 40 °C</span><span>P = 150 kPa</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Kütle: <span class='m'>ṁ<sub>3</sub> = ṁ<sub>1</sub> + ṁ<sub>2</sub></span>. Enerji (q = w = 0): <span class='m'>ṁ<sub>1</sub>h<sub>1</sub> + ṁ<sub>2</sub>h<sub>2</sub> = (ṁ<sub>1</sub> + ṁ<sub>2</sub>)h<sub>3</sub></span></li><li>ṁ<sub>2</sub>'ye böl: <span class='m'>y h<sub>1</sub> + h<sub>2</sub> = (y + 1) h<sub>3</sub></span> ⟹ <span class='m'>y = <span class="fr"><span>h<sub>3</sub> − h<sub>2</sub></span><span>h<sub>1</sub> − h<sub>3</sub></span></span></span></li><li>Sıkıştırılmış sıvı ≈ aynı T'deki doymuş sıvı (A-4): <span class='m'>h<sub>1</sub> ≅ h<sub>f@60°C</sub> = 251.18, h<sub>2</sub> ≅ h<sub>f@10°C</sub> = 42.022, h<sub>3</sub> ≅ h<sub>f@40°C</sub> = 167.53 kJ/kg</span></li><li><span class='m'>y = <span class="fr"><span>167.53 − 42.022</span><span>251.18 − 167.53</span></span> = 1.50</span></li></ol><div><span class="ans">y = ṁ₁/ṁ₂ ≈ 1.50</span></div><div class="note"><b>Not:</b> Slayttaki çözümde karışım sıcaklığı 45 °C alınmış (h<sub>3</sub> = 188.44 kJ/kg ⟹ y = 2.33). Soru 40 °C dediği için cevap 1.50'dir. 150 kPa'da T<sub>doy</sub> = 111 °C olduğundan su her yerde sıkıştırılmış sıvıdır.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 9</span><div><div class="topic">Isı değiştirici</div><p class="q">R-134a yoğuşturucuya 1 MPa, 70 °C'de 6 kg/dak ile girip 35 °C'de çıkıyor. Soğutma suyu 300 kPa, 15 °C'de girip 25 °C'de çıkıyor. Basınç kayıpları ihmal. (a) Su debisi, (b) R-134a'dan suya ısı geçişi?</p></div><button class="done" data-id="p9">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>ṁ<sub>R</sub> = 6 kg/dak</span><span>R-134a: 1 MPa, 70 °C → 35 °C</span><span>Su: 15 °C → 25 °C</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>R-134a: <span class='m'>h<sub>3</sub> = 303.85 kJ/kg</span> (A-13, kızgın), <span class='m'>h<sub>4</sub> ≅ h<sub>f@35°C</sub> = 100.87 kJ/kg</span> (A-11)</li><li>Su: <span class='m'>h<sub>1</sub> ≅ h<sub>f@15°C</sub> = 62.982, h<sub>2</sub> ≅ h<sub>f@25°C</sub> = 104.83 kJ/kg</span></li><li>(a) Tüm cihaz KH, Q = 0: <span class='m'>ṁ<sub>w</sub>(h<sub>2</sub> − h<sub>1</sub>) = ṁ<sub>R</sub>(h<sub>3</sub> − h<sub>4</sub>)</span></li><li><span class='m'>ṁ<sub>w</sub> = <span class="fr"><span>6(303.85 − 100.87)</span><span>104.83 − 62.982</span></span> = 29.10 kg/dak</span></li><li>(b) KH = sadece su: <span class='m'>Q̇<sub>w,g</sub> = ṁ<sub>w</sub>(h<sub>2</sub> − h<sub>1</sub>) = 29.10(104.83 − 62.982) = 1218 kJ/dak</span></li></ol><div><span class="ans">ṁ<sub>w</sub> = 29.10 kg/dak</span> <span class="ans">Q̇ = 1218 kJ/dak ≈ 20.3 kW</span></div><div class="note"><b>Not:</b> Kontrol: R-134a'nın verdiği ısı = 6(303.85 − 100.87) = 1218 kJ/dak ✓</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 10</span><div><div class="topic">Kanal akışı · elektrikli ısıtıcı</div><p class="q">15 kW'lık elektrikli ısıtıcılı kanalda havanın hacimsel debisi 150 m³/dak; giriş 100 kPa, 17 °C. Kanaldan çevreye 200 W ısı kaybı var. Çıkış sıcaklığı?</p></div><button class="done" data-id="p10">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>Ẇ<sub>e,g</sub> = 15 kW</span><span>V̇<sub>1</sub> = 150 m³/dak</span><span>P<sub>1</sub> = 100 kPa, T<sub>1</sub> = 290 K</span><span>Q̇<sub>ç</sub> = 0.2 kW</span><span>c<sub>p</sub> = 1.005 kJ/kg·K</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Enerji dengesi (Δke = Δpe = 0): <span class='m'>Ẇ<sub>e,g</sub> + ṁh<sub>1</sub> = Q̇<sub>ç</sub> + ṁh<sub>2</sub></span> ⟹ <span class='m'>Ẇ<sub>e,g</sub> − Q̇<sub>ç</sub> = ṁc<sub>p</sub>(T<sub>2</sub> − T<sub>1</sub>)</span></li><li><span class='m'>v<sub>1</sub> = <span class="fr"><span>RT<sub>1</sub></span><span>P<sub>1</sub></span></span> = <span class="fr"><span>(0.287)(290)</span><span>100</span></span> = 0.832 m³/kg</span></li><li><span class='m'>ṁ = <span class="fr"><span>V̇<sub>1</sub></span><span>v<sub>1</sub></span></span> = <span class="fr"><span>150/60</span><span>0.832</span></span> = 3.0 kg/s</span></li><li><span class='m'>15 − 0.2 = (3.0)(1.005)(T<sub>2</sub> − 17)</span></li></ol><div><span class="ans">T<sub>2</sub> ≈ 21.9 °C</span></div><div class="note"><b>Not:</b> Burada Δh = c<sub>p</sub>ΔT kullanılabilir çünkü sıcaklık aralığı dar (oda sıcaklığı civarı).</div></details></div></div></section>
+<section id="kavram"><h2><span class="num">8</span>Kavram Soruları</h2><div class="card"><div class="qa"><b>Lüle ile yayıcı arasındaki fark nedir? Ses altı akışta kesitleri nasıl değişir?</b><details><summary>Cevap</summary><div class="a">Lüle basıncı düşürüp hızı artırır, yayıcı hızı düşürüp basıncı artırır. Ses altı hızlarda lülenin kesiti akış yönünde <b>daralır</b>, yayıcınınki <b>genişler</b>. Ses üstü hızlarda tersi geçerlidir.</div></details></div><div class="qa"><b>Bir akışkan kısılma vanasından geçerken hangi özelik sabit kalır? Mükemmel gazda sıcaklık ne olur?</b><details><summary>Cevap</summary><div class="a">Entalpi sabit kalır (h<sub>1</sub> = h<sub>2</sub>). Mükemmel gazda h = h(T) olduğundan sıcaklık değişmez.</div></details></div><div class="qa"><b>Sürekli akışlı bir sistemde giriş ve çıkış hacimsel debileri eşit olmak zorunda mı?</b><details><summary>Cevap</summary><div class="a">Hayır. Eşit olması gereken <b>kütle debisidir</b>. Hacimsel debi yalnızca sıkıştırılamaz akışta (sıvılar) eşit kalır.</div></details></div><div class="qa"><b>Akan bir akışkanın enerjisinde neden u yerine h kullanırız?</b><details><summary>Cevap</summary><div class="a">Akan akışkan, kontrol hacmine girip çıkmak için akış işi (Pv) taşır. h = u + Pv bu işi kendiliğinden içerir; bu yüzden θ = h + ke + pe yazılır.</div></details></div><div class="qa"><b>Isı değiştiricide Q̇ ne zaman sıfır, ne zaman sıfırdan farklı alınır?</b><details><summary>Cevap</summary><div class="a">Tüm cihaz (iki akış birlikte) kontrol hacmi seçilir ve dışı yalıtılmışsa Q̇ = 0. Yalnızca bir akışkan KH seçilirse diğer akışkana geçen ısı Q̇ olarak girer.</div></details></div><div class="qa"><b>Boş, yalıtılmış bir tank sabit özellikli bir hattan dolduruluyor. Enerji dengesi neye indirgenir?</b><details><summary>Cevap</summary><div class="a">Q = W = 0, m<sub>1</sub> = 0, çıkış yok ⟹ m<sub>g</sub>h<sub>g</sub> = m<sub>2</sub>u<sub>2</sub> ⟹ <b>u<sub>2</sub> = h<sub>hat</sub></b>. Tanktaki son sıcaklık hat sıcaklığından yüksektir.</div></details></div></div></section>
+<section id="formul"><h2><span class="num">9</span>Formül Kartı</h2>
+<div class="card sheet">
+<div class="grid">
+<div><h4>Kütle</h4>
+<div class="eq">ṁ = ρVA = VA/v</div>
+<div class="eq">Σṁ<sub>g</sub> = Σṁ<sub>ç</sub> (sürekli)</div>
+<div class="eq">m<sub>g</sub> − m<sub>ç</sub> = (m<sub>2</sub> − m<sub>1</sub>)<sub>KH</sub></div></div>
+<div><h4>Enerji (sürekli akış)</h4>
+<div class="eq">q − w = Δh + ΔV²/2 + gΔz</div>
+<div class="eq">θ = h + V²/2 + gz, &nbsp; w<sub>akış</sub> = Pv</div>
+<div class="eq">1 kJ/kg = 1000 m²/s²</div></div>
+<div><h4>Mükemmel gaz kısayolları</h4>
+<div class="eq">Pv = RT, &nbsp; R<sub>hava</sub> = 0.287 kJ/kg·K</div>
+<div class="eq">Δh ≈ c<sub>p</sub>ΔT, &nbsp; c<sub>p,hava</sub> = 1.005</div></div>
+<div><h4>Sıvı kısayolu</h4>
+<div class="eq">h ≅ h<sub>f@T</sub> (sıkıştırılmış sıvı)</div>
+<div class="eq">Δh ≈ cΔT, &nbsp; c<sub>su</sub> = 4.18 kJ/kg·K</div></div>
+</div>
+<div class="tip"><b>Problem çözme sırası:</b> 1) Sistemi/KH'yi çiz ve sınırla · 2) Sürekli mi, zamanla değişen mi? · 3) Kabulleri yaz (q, w, Δke, Δpe) · 4) Kütle dengesi · 5) Enerji dengesi · 6) Tablodan özellikleri bul · 7) Birimleri kontrol et.</div>
+</div>
+</section>
+
+<footer>Termodinamik I · ders slaytlarından hazırlanmış özet · tablo değerleri slaytlardaki (Çengel) değerlerdir</footer>
+</main>
+<script>
+function toggleAll(open){document.querySelectorAll('details').forEach(d=>d.open=open)}
+(function(){
+ var key='termo-'+document.body.dataset.page;
+ var st={};try{st=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+ document.querySelectorAll('.done').forEach(function(b){
+  var id=b.dataset.id; if(st[id]){b.classList.add('on');b.textContent='✓ Anladım'}
+  b.addEventListener('click',function(){
+   var on=!b.classList.contains('on'); b.classList.toggle('on',on); b.textContent=on?'✓ Anladım':'Anladım olarak işaretle';
+   st[id]=on; try{localStorage.setItem(key,JSON.stringify(st))}catch(e){}
+   upd();
+  });
+ });
+ function upd(){var t=document.querySelectorAll('.done').length,d=document.querySelectorAll('.done.on').length;var el=document.getElementById('prog');if(el)el.textContent=d+'/'+t+' soru tamam'}
+ upd();
+ window.addEventListener('beforeprint',function(){toggleAll(true)});
+})();
+</script>
+</body></html>

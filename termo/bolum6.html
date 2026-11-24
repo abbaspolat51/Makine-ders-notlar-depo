@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TERMODİNAMİK I · BÖLÜM 6 — Termodinamiğin İkinci Yasası</title>
+<style>:root{--a:#5b4fcf;--a-soft:#efedff;--a-line:#c9c3f5}
+:root{--bg:#f6f8fc;--card:#fff;--ink:#1f2937;--mut:#5b6472;--line:#e5e9f2;
+--ok:#0f9d6b;--okbg:#e9f8f1;--warn:#b45309;--warnbg:#fff7e8;--info:#2563eb;--infobg:#eef4ff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px 60px}
+header.hero{background:linear-gradient(135deg,var(--a-soft) 0%,#ffffff 70%);border-bottom:1px solid var(--line)}
+header.hero .wrap{padding-top:34px;padding-bottom:28px}
+.kicker{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--a);background:#fff;border:1px solid var(--a-line);padding:3px 10px;border-radius:999px}
+h1{font-size:34px;line-height:1.2;margin:12px 0 8px;color:#111827}
+.sub{color:var(--mut);margin:0;max-width:760px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font-size:13px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--mut)}
+nav.toc{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 20px;white-space:nowrap}
+nav.toc a{font-size:14px;color:var(--mut);text-decoration:none;padding:5px 9px;border-radius:8px}
+nav.toc a:hover{background:var(--a-soft);color:var(--a)}
+.toolbar{margin-left:auto;display:flex;gap:6px}
+.btn{font:inherit;font-size:13px;border:1px solid var(--a-line);background:#fff;color:var(--a);border-radius:8px;padding:5px 12px;cursor:pointer}
+.btn:hover{background:var(--a-soft)}
+section{margin-top:40px;scroll-margin-top:64px}
+h2{font-size:24px;margin:0 0 16px;display:flex;align-items:center;gap:10px}
+h2 .num{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:9px;background:var(--a);color:#fff;font-size:16px}
+h3{font-size:18px;margin:22px 0 8px;color:#111827}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:14px 0;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid .card{margin:0}
+.card h3:first-child,.card h4:first-child{margin-top:0}
+h4{margin:0 0 6px;font-size:16px;color:var(--a)}
+p{margin:8px 0}
+ul{margin:6px 0;padding-left:22px}
+li{margin:3px 0}
+.eq{font-family:"Cambria Math","Cambria","Times New Roman",serif;font-size:18px;background:var(--a-soft);border-left:4px solid var(--a);border-radius:8px;padding:10px 16px;margin:10px 0;overflow-x:auto;white-space:nowrap}
+.eq.big{font-size:20px;text-align:center;border-left:none;border:1px dashed var(--a-line)}
+.eq small{font-family:"Segoe UI",system-ui,sans-serif;font-size:13px;color:var(--mut);margin-left:10px}
+.m{font-family:"Cambria Math","Cambria","Times New Roman",serif;font-size:1.06em}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 3px;line-height:1.25}
+.fr>span:first-child{border-bottom:1.3px solid currentColor;padding:0 3px}
+.fr>span:last-child{padding:0 3px}
+sub,sup{font-size:.72em}
+.tip,.note,.warn{border-radius:10px;padding:10px 14px;margin:12px 0;font-size:15px}
+.tip{background:var(--okbg);border:1px solid #bfe9d6}
+.tip b:first-child{color:var(--ok)}
+.warn{background:var(--warnbg);border:1px solid #f6dcae}
+.warn b:first-child{color:var(--warn)}
+.note{background:var(--infobg);border:1px solid #cddcff}
+.note b:first-child{color:var(--info)}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:8px 0}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--a-soft);color:#111827;font-weight:600}
+td.m{white-space:nowrap}
+.card{overflow-x:auto}
+.prob{background:#fff;border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden}
+.prob .ph{display:flex;gap:12px;align-items:flex-start;padding:16px 20px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,var(--a-soft),#fff)}
+.prob .tag{flex:none;font-weight:700;font-size:13px;color:#fff;background:var(--a);border-radius:8px;padding:3px 9px;margin-top:3px}
+.prob .q{margin:0}
+.prob .topic{font-size:12px;color:var(--a);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.prob .body{padding:4px 20px 16px}
+details{margin-top:10px}
+details>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--a);padding:6px 12px;border:1px solid var(--a-line);border-radius:8px;background:#fff;user-select:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"▸";transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+details[open]>summary{background:var(--a-soft)}
+.steps{counter-reset:s;margin:12px 0 0;padding:0;list-style:none}
+.steps>li{counter-increment:s;position:relative;padding:4px 0 8px 36px;border-left:2px solid var(--a-line);margin-left:12px}
+.steps>li::before{content:counter(s);position:absolute;left:-13px;top:4px;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid var(--a);color:var(--a);font-size:12px;font-weight:700;display:grid;place-items:center}
+.given{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.given span{font-family:"Cambria Math","Cambria",serif;background:#f3f4f6;border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:15px}
+.ans{display:inline-block;margin-top:6px;background:var(--okbg);border:1px solid #bfe9d6;color:#065f46;font-weight:700;border-radius:8px;padding:4px 12px;font-family:"Cambria Math","Cambria",serif}
+.done{margin-left:auto;flex:none;font-size:12px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:3px 10px;cursor:pointer;color:var(--mut)}
+.done.on{background:var(--okbg);border-color:#bfe9d6;color:var(--ok)}
+.qa{border-bottom:1px solid var(--line);padding:10px 0}
+.qa:last-child{border-bottom:none}
+.qa details{margin-top:6px}
+.qa details>summary{font-size:14px;padding:3px 10px}
+.qa .a{margin-top:8px;color:#374151}
+.sheet .eq{font-size:16px;margin:6px 0}
+footer{margin-top:50px;color:var(--mut);font-size:13px;text-align:center}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;background:var(--a-soft);color:var(--a);font-weight:600;margin-right:4px}
+@media (max-width:640px){h1{font-size:26px}.eq{font-size:16px}.card{padding:14px 16px}}
+@media print{nav.toc,.btn,.done{display:none}body{background:#fff}.prob,.card{break-inside:avoid}details>summary{display:none}}
+</style></head>
+<body data-page="b6">
+<header class="hero"><div class="wrap">
+<a href="index.html" style="display:inline-block;margin-right:10px;font-size:13px;color:var(--a);text-decoration:none;font-weight:600">← Tüm haftalar</a><span class="kicker">TERMODİNAMİK I · BÖLÜM 6</span>
+<h1>Termodinamiğin İkinci Yasası</h1><p class="sub">Hal değişimlerinin yönü, ısı makineleri, soğutma makineleri ve ısı pompaları, Kelvin–Planck ve Clausius ifadeleri, tersinirlik ve Carnot çevrimi.</p>
+<div class="chips"><span class="chip">6 çözümlü soru</span><span class="chip">6 kavram sorusu</span><span class="chip">Carnot formülleri</span><span class="chip">Formül kartı</span><span class="chip" id="prog"></span></div>
+</div></header>
+<nav class="toc"><div class="wrap"><a href="#ozet">Özet</a><a href="#giris">Giriş</a><a href="#isimak">Isı Makineleri</a><a href="#sogutma">Soğutma / IP</a><a href="#tersinir">Tersinirlik</a><a href="#carnot">Carnot</a><a href="#sorular">Sorular</a><a href="#kavram">Kavram</a><a href="#formul">Formül Kartı</a><div class="toolbar"><button class="btn" onclick="toggleAll(true)">Tüm çözümleri aç</button><button class="btn" onclick="toggleAll(false)">Kapat</button></div></div></nav>
+<main class="wrap">
+<section id="ozet"><h2><span class="num">1</span>Özet</h2>
+<div class="grid">
+<div class="card"><h4>Bu haftanın fikri</h4><p>1. yasa "enerji korunur" der ama <b>yön</b> söylemez. Sıcak kahve soğuk odada kendiliğinden ısınmaz; tele ısı verince elektrik üretilmez. <b>2. yasa hal değişimlerinin yönünü</b> ve enerjinin <b>niteliğini</b> belirler.</p></div>
+<div class="card"><h4>En çok sorulan</h4><ul><li>Isıl verim η ve COP hesapları</li><li>Carnot (tersinir) verim ve COP: sadece sıcaklıklarla</li><li>Bir makinenin mümkün / tersinir / imkânsız olduğunu göstermek</li></ul></div>
+<div class="card"><h4>Altın kural</h4><p>Carnot formüllerinde sıcaklık <b>her zaman Kelvin</b>: <span class="m">T(K) = T(°C) + 273</span>.</p></div>
+</div>
+</section>
+<section id="giris"><h2><span class="num">2</span>İkinci Yasaya Giriş</h2>
+<div class="card">
+<p>Bir hal değişiminin gerçekleşebilmesi için <b>hem 1. hem 2. yasayı</b> sağlaması gerekir. Örnekler (1. yasaya uyar ama gerçekleşmez):</p>
+<ul><li>Sıcak kahvenin soğuk odada daha da ısınması</li><li>Bir çarka ısı verince çarkın dönüp ağırlık kaldırması</li><li>Dirençli teli ısıtınca telde elektrik akımı oluşması</li></ul>
+<h3>2. yasa ne işe yarar?</h3>
+<ol><li>Hal değişimlerinin <b>yönünü</b> belirler.</li><li>Enerjinin sadece <b>niceliği</b> değil <b>niteliği</b> de vardır; 2. yasa niteliğin nasıl azaldığını ölçer.</li><li>Isı makineleri ve soğutma makinelerinin <b>kuramsal en yüksek verimlerini</b> verir.</li></ol>
+<h3>Isıl enerji deposu</h3>
+<p>Sıcaklığı değişmeden sonlu miktarda ısı alabilen/verebilen, ısıl enerji sığası (kütle × özgül ısı) çok büyük cisim. Okyanus, göl, atmosfer gibi.</p>
+<ul><li><b>Kaynak:</b> ısı veren depo (yüksek sıcaklık)</li><li><b>Kuyu:</b> ısı alan depo (düşük sıcaklık)</li></ul>
+</div>
+</section>
+<section id="isimak"><h2><span class="num">3</span>Isı Makineleri ve Kelvin–Planck</h2>
+<div class="card">
+<p><b>Isı makinesi</b>: (1) yüksek sıcaklıktaki kaynaktan ısı alır, (2) bir kısmını işe çevirir, (3) kalanını düşük sıcaklıktaki kuyuya atar, (4) bir <b>çevrim</b> gerçekleştirerek çalışır. Isı alışverişini yapan akışkana <b>iş akışkanı</b> denir.</p>
+<div class="eq big">W<sub>net,ç</sub> = Q<sub>H</sub> − Q<sub>L</sub> &nbsp;&nbsp;&nbsp;&nbsp; η<sub>ıs</sub> = <span class="fr"><span>W<sub>net,ç</sub></span><span>Q<sub>H</sub></span></span> = 1 − <span class="fr"><span>Q<sub>L</sub></span><span>Q<sub>H</sub></span></span></div>
+<p>Buharlı güç santralinde: Q<sub>giren</sub> kazanda suya geçen ısı, Q<sub>çıkan</sub> yoğuşturucuda atılan ısı, W<sub>çıkan</sub> türbin işi, W<sub>giren</sub> pompa işi. <span class="m">W<sub>net</sub> = W<sub>ç</sub> − W<sub>g</sub> = Q<sub>g</sub> − Q<sub>ç</sub></span>.</p>
+<div class="warn"><b>Q<sub>L</sub> sıfır olabilir mi?</b> Hayır. İdeal koşullarda bile her ısı makinesi çevrimi tamamlamak için düşük sıcaklıktaki depoya bir miktar ısı atmak zorundadır. Bu sürtünmeden değil, 2. yasadan kaynaklanır. En iyi ısı makineleri bile aldığı ısının yaklaşık yarısını atar.</div>
+<h3>Kelvin–Planck ifadesi</h3>
+<div class="note"><b>Kelvin–Planck:</b> Bir çevrim gerçekleştirerek çalışan bir makinenin, <b>yalnızca bir depodan</b> ısı alıp net iş üretmesi olanaksızdır. ⟹ Hiçbir ısı makinesinin ısıl verimi %100 olamaz.</div>
+</div>
+</section>
+<section id="sogutma"><h2><span class="num">4</span>Soğutma Makineleri, Isı Pompaları ve Clausius</h2>
+<div class="card">
+<p>Isı kendiliğinden soğuktan sıcağa geçmez; bunun için iş harcayan <b>soğutma makinesi</b> ya da <b>ısı pompası</b> gerekir. En yaygın çevrim <b>buhar sıkıştırmalı soğutma çevrimi</b>dir: kompresör → yoğuşturucu → kısılma vanası → buharlaştırıcı. İş akışkanına <b>soğutucu akışkan</b> denir.</p>
+<div class="grid">
+<div class="card"><h4>Soğutma makinesi (SM)</h4><p>Amaç: soğuk ortamdan <b>Q<sub>L</sub> çekmek</b>.</p>
+<div class="eq">COP<sub>SM</sub> = <span class="fr"><span>Q<sub>L</sub></span><span>W<sub>net,g</sub></span></span> = <span class="fr"><span>1</span><span>Q<sub>H</sub>/Q<sub>L</sub> − 1</span></span></div>
+<p>COP<sub>SM</sub> 1'den <b>büyük olabilir</b>.</p></div>
+<div class="card"><h4>Isı pompası (IP)</h4><p>Amaç: sıcak ortama <b>Q<sub>H</sub> vermek</b>.</p>
+<div class="eq">COP<sub>IP</sub> = <span class="fr"><span>Q<sub>H</sub></span><span>W<sub>net,g</sub></span></span> = <span class="fr"><span>1</span><span>1 − Q<sub>L</sub>/Q<sub>H</sub></span></span></div>
+<p>COP<sub>IP</sub> her zaman ≥ 1.</p></div>
+</div>
+<div class="eq big">COP<sub>IP</sub> = COP<sub>SM</sub> + 1 &nbsp;<small>(aynı Q<sub>L</sub>, Q<sub>H</sub> için)</small> &nbsp;&nbsp;&nbsp; Q<sub>H</sub> = Q<sub>L</sub> + W<sub>net,g</sub></div>
+<ul>
+<li>COP<sub>IP</sub> = 1 ⟹ Q<sub>L</sub> = 0, yani makine dirençli ısıtıcı gibi davranır.</li>
+<li>Günümüz ısı pompalarının mevsimlik COP'si 2–3 arasıdır. Hava kaynaklı ısı pompalarının verimi donma altında çok düşer; toprak kaynaklı (jeotermal) olanlar daha pahalı ama daha verimlidir.</li>
+<li>Klima, soğuttuğu ortam bir oda olan buzdolabıdır; ters takılırsa ısı pompası olur.</li>
+<li>COP, soğutma sıcaklığı düştükçe azalır — gereğinden düşük sıcaklığa soğutmak ekonomik değildir.</li>
+<li><b>EER</b> (enerji etkinlik oranı): 1 Wh elektrik başına çekilen ısı (Btu). <span class="m">EER = 3.412 COP<sub>SM</sub></span></li>
+</ul>
+<h3>Clausius ifadesi</h3>
+<div class="note"><b>Clausius:</b> Çevrim yapan ve düşük sıcaklıktaki cisimden aldığı ısıyı yüksek sıcaklıktaki cisme aktarmak <b>dışında hiçbir enerji etkileşimi olmayan</b> bir makine yapmak olanaksızdır. (Buzdolabı fişe takılmadan çalışmaz.)</div>
+<p><b>Eşdeğerlik:</b> Kelvin–Planck ve Clausius ifadeleri eşdeğerdir; birine aykırı olan makine diğerine de aykırıdır. Bugüne kadar 2. yasaya aykırı bir deney yapılamamıştır.</p>
+<h3>Devridaim makineleri</h3>
+<table><tr><th>DDM1</th><td>1. yasaya aykırı — yoktan enerji üretir.</td></tr><tr><th>DDM2</th><td>2. yasaya aykırı — örneğin tek depodan ısı alıp tamamını işe çevirir (Q<sub>L</sub> = 0).</td></tr></table>
+</div>
+</section>
+<section id="tersinir"><h2><span class="num">5</span>Tersinir ve Tersinmez Hal Değişimleri</h2>
+<div class="card">
+<p><b>Tersinir hal değişimi:</b> Çevrede hiçbir iz bırakmadan tersi yönde gerçekleştirilebilen hal değişimi. Doğada yoktur, ama (1) incelemesi kolaydır, (2) gerçek süreçlerin kıyaslanacağı <b>kuramsal sınırları</b> verir.</p>
+<div class="tip"><b>Önemli:</b> İş üreten cihazlar (türbin) <b>en çok işi</b>, iş tüketen cihazlar (kompresör, pompa) <b>en az işi</b> tersinir hal değişiminde yapar/gerektirir.</div>
+<h3>Tersinmezlikler (hal değişimini tersinmez yapan etkenler)</h3>
+<div class="given"><span>sürtünme</span><span>dengesiz (serbest) genişleme</span><span>iki akışkanın karışması</span><span>sonlu sıcaklık farkında ısı geçişi</span><span>elektrik direnci</span><span>katıların elastik olmayan şekil değişimi</span><span>kimyasal tepkimeler</span></div>
+<table>
+<tr><th>İçten tersinir</th><td>Sistem sınırları <b>içinde</b> tersinmezlik yok (sanki-dengeli).</td></tr>
+<tr><th>Dıştan tersinir</th><td>Sistem sınırları <b>dışında</b> tersinmezlik yok (ör. ısı geçişi sonsuz küçük ΔT ile).</td></tr>
+<tr><th>Tümden tersinir</th><td>Ne içinde ne çevresinde tersinmezlik var.</td></tr>
+</table>
+</div>
+</section>
+<section id="carnot"><h2><span class="num">6</span>Carnot Çevrimi ve Carnot İlkeleri</h2>
+<div class="card">
+<h3>Carnot çevrimi (4 tersinir hal değişimi)</h3>
+<table>
+<tr><th>1→2</th><td>Tersinir <b>izotermal genişleme</b> (T<sub>H</sub> = sabit), Q<sub>H</sub> alınır</td></tr>
+<tr><th>2→3</th><td>Tersinir <b>adyabatik genişleme</b>, T<sub>H</sub> → T<sub>L</sub></td></tr>
+<tr><th>3→4</th><td>Tersinir <b>izotermal sıkıştırma</b> (T<sub>L</sub> = sabit), Q<sub>L</sub> atılır</td></tr>
+<tr><th>4→1</th><td>Tersinir <b>adyabatik sıkıştırma</b>, T<sub>L</sub> → T<sub>H</sub></td></tr>
+</table>
+<p>Tümden tersinir olduğu için ters yönde çalıştırılabilir ⟹ <b>ters Carnot çevrimi</b> = Carnot soğutma makinesi / ısı pompası.</p>
+<h3>Carnot ilkeleri</h3>
+<ol><li>Aynı iki depo arasında çalışan <b>tersinmez</b> ısı makinesinin verimi, <b>tersinir</b> olanınkinden her zaman küçüktür.</li>
+<li>Aynı iki depo arasında çalışan <b>bütün tersinir</b> ısı makinelerinin verimleri eşittir.</li></ol>
+<h3>Termodinamik (Kelvin) sıcaklık ölçeği</h3>
+<p>Tersinir çevrimlerde ısı oranı, mutlak sıcaklıkların oranına eşittir — bu, maddeden bağımsız bir sıcaklık ölçeği tanımlar:</p>
+<div class="eq big">(<span class="fr"><span>Q<sub>H</sub></span><span>Q<sub>L</sub></span></span>)<sub>tr</sub> = <span class="fr"><span>T<sub>H</sub></span><span>T<sub>L</sub></span></span></div>
+<h3>Carnot ısı makinesi</h3>
+<div class="eq big">η<sub>ıs,tr</sub> = 1 − <span class="fr"><span>T<sub>L</sub></span><span>T<sub>H</sub></span></span></div>
+<table><tr><th>η<sub>ıs</sub> &lt; η<sub>ıs,tr</sub></th><td>tersinmez (gerçek) makine</td></tr><tr><th>η<sub>ıs</sub> = η<sub>ıs,tr</sub></th><td>tersinir makine</td></tr><tr><th>η<sub>ıs</sub> &gt; η<sub>ıs,tr</sub></th><td><b>olanaksız</b> makine</td></tr></table>
+<h3>Carnot soğutma makinesi ve ısı pompası</h3>
+<div class="eq">COP<sub>SM,tr</sub> = <span class="fr"><span>1</span><span>T<sub>H</sub>/T<sub>L</sub> − 1</span></span> = <span class="fr"><span>T<sub>L</sub></span><span>T<sub>H</sub> − T<sub>L</sub></span></span> &nbsp;&nbsp;&nbsp;&nbsp; COP<sub>IP,tr</sub> = <span class="fr"><span>1</span><span>1 − T<sub>L</sub>/T<sub>H</sub></span></span> = <span class="fr"><span>T<sub>H</sub></span><span>T<sub>H</sub> − T<sub>L</sub></span></span></div>
+<p>Aynı karşılaştırma COP için de geçerli: COP &lt; COP<sub>tr</sub> tersinmez, = tersinir, &gt; olanaksız.</p>
+<h3>Enerjinin niteliği</h3>
+<p>Isıl enerjinin sıcaklığı ne kadar yüksekse niteliği (işe dönüşebilen kısmı) o kadar yüksektir. Carnot verimini artırmak için T<sub>H</sub>'yi yükselt veya T<sub>L</sub>'yi düşür. Carnot COP'sini artırmak için T<sub>H</sub> ile T<sub>L</sub> arasındaki farkı küçült.</p>
+<div class="warn"><b>Tuzak:</b> Carnot formüllerinde °C kullanılamaz. "−5 °C ile 21 °C" → 268 K ve 294 K.</div>
+</div>
+</section>
+<section id="sorular"><h2><span class="num">7</span>Çözümlü Sorular</h2><div class="prob"><div class="ph"><span class="tag">Soru 1</span><div><div class="topic">Isı makinesi · ısıl verim</div><p class="q">Bir ısı makinesine kazandan 80 MW ısı geçiyor; makine akarsuya 50 MW atık ısı veriyor. Net güç ve ısıl verim?</p></div><button class="done" data-id="p1">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>Q̇<sub>H</sub> = 80 MW</span><span>Q̇<sub>L</sub> = 50 MW</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Kazan yüksek sıcaklık deposu, akarsu düşük sıcaklık deposudur.</li><li><span class='m'>Ẇ<sub>net,ç</sub> = Q̇<sub>H</sub> − Q̇<sub>L</sub> = 80 − 50 = 30 MW</span></li><li><span class='m'>η<sub>ıs</sub> = <span class="fr"><span>Ẇ<sub>net,ç</sub></span><span>Q̇<sub>H</sub></span></span> = <span class="fr"><span>30</span><span>80</span></span> = 0.375</span></li></ol><div><span class="ans">Ẇ<sub>net</sub> = 30 MW</span> <span class="ans">η<sub>ıs</sub> = %37.5</span></div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 2</span><div><div class="topic">Buzdolabı · COP</div><p class="q">Buzdolabının iç ortamından dakikada 360 kJ ısı çekilerek iç ortam 4 °C'de tutuluyor. Gerekli güç 2 kW. (a) COP, (b) mutfağa verilen ısı?</p></div><button class="done" data-id="p2">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>Q̇<sub>L</sub> = 360 kJ/dak</span><span>Ẇ<sub>net,g</sub> = 2 kW</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Birim çevir: <span class='m'>Q̇<sub>L</sub> = 360/60 = 6 kW</span></li><li><span class='m'>COP<sub>SM</sub> = <span class="fr"><span>Q̇<sub>L</sub></span><span>Ẇ<sub>net,g</sub></span></span> = <span class="fr"><span>6</span><span>2</span></span> = 3</span></li><li>1. yasa: <span class='m'>Q̇<sub>H</sub> = Q̇<sub>L</sub> + Ẇ<sub>net,g</sub> = 360 + 2(60) = 480 kJ/dak</span></li></ol><div><span class="ans">COP<sub>SM</sub> = 3</span> <span class="ans">Q̇<sub>H</sub> = 480 kJ/dak</span></div><div class="note"><b>Not:</b> Mutfağa verilen ısı = çekilen ısı + harcanan elektrik. Enerji yok olmaz, biçim ve yer değiştirir. Kapağı açık buzdolabı mutfağı soğutmaz, ısıtır!</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 3</span><div><div class="topic">Isı pompası · COP</div><p class="q">Bir ev ısı pompasıyla ısıtılıyor. Dış sıcaklık −2 °C iken evin ısı kaybı 80 000 kJ/h; iç sıcaklık 20 °C. COP<sub>IP</sub> = 2.5 ise (a) tüketilen güç, (b) dış havadan alınan ısı?</p></div><button class="done" data-id="p3">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>Q̇<sub>H</sub> = 80 000 kJ/h</span><span>COP<sub>IP</sub> = 2.5</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Evi 20 °C'de tutmak için ısı pompası kaybedilen ısıyı vermeli: <span class='m'>Q̇<sub>H</sub> = 80 000 kJ/h</span></li><li><span class='m'>Ẇ<sub>net,g</sub> = <span class="fr"><span>Q̇<sub>H</sub></span><span>COP<sub>IP</sub></span></span> = <span class="fr"><span>80 000</span><span>2.5</span></span> = 32 000 kJ/h ≈ 8.9 kW</span></li><li><span class='m'>Q̇<sub>L</sub> = Q̇<sub>H</sub> − Ẇ<sub>net,g</sub> = 80 000 − 32 000 = 48 000 kJ/h</span></li></ol><div><span class="ans">Ẇ = 32 000 kJ/h (8.9 kW)</span> <span class="ans">Q̇<sub>L</sub> = 48 000 kJ/h</span></div><div class="note"><b>Not:</b> Dirençli ısıtıcı kullanılsaydı 80 000 kJ/h'nin tamamı elektrikle ödenecekti — ısı pompasının 2.5 katı.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 4</span><div><div class="topic">Carnot ısı makinesi</div><p class="q">Carnot ısı makinesi 652 °C'deki depodan 500 kJ alıp 30 °C'deki depoya ısı veriyor. (a) Isıl verim, (b) düşük sıcaklık deposuna verilen ısı?</p></div><button class="done" data-id="p4">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>T<sub>H</sub> = 652 °C = 925 K</span><span>T<sub>L</sub> = 30 °C = 303 K</span><span>Q<sub>H</sub> = 500 kJ</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>Carnot makinesi tersinir: <span class='m'>η<sub>ıs,tr</sub> = 1 − <span class="fr"><span>T<sub>L</sub></span><span>T<sub>H</sub></span></span> = 1 − <span class="fr"><span>303</span><span>925</span></span> = 0.672</span></li><li><span class='m'>Q<sub>L,tr</sub> = <span class="fr"><span>T<sub>L</sub></span><span>T<sub>H</sub></span></span>Q<sub>H</sub> = <span class="fr"><span>303</span><span>925</span></span>(500) = 163.8 kJ</span></li></ol><div><span class="ans">η = %67.2</span> <span class="ans">Q<sub>L</sub> ≈ 164 kJ</span></div><div class="note"><b>Not:</b> Kontrol: W = 500 − 163.8 = 336.2 kJ = 0.672 × 500 ✓</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 5</span><div><div class="topic">Carnot ısı pompası · en az güç</div><p class="q">Ev 21 °C'de tutuluyor. Dışarısı −5 °C iken ısı kaybı 135 000 kJ/h. Isı pompasını çalıştırmak için gereken en az güç?</p></div><button class="done" data-id="p5">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>T<sub>H</sub> = 21 °C = 294 K</span><span>T<sub>L</sub> = −5 °C = 268 K</span><span>Q̇<sub>H</sub> = 135 000 kJ/h</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li><span class='m'>Q̇<sub>H</sub> = 135 000/3600 = 37.5 kW</span></li><li>"En az güç" ⟹ tersinir ısı pompası: <span class='m'>COP<sub>IP,tr</sub> = <span class="fr"><span>1</span><span>1 − T<sub>L</sub>/T<sub>H</sub></span></span> = <span class="fr"><span>1</span><span>1 − 268/294</span></span> = 11.3</span></li><li><span class='m'>Ẇ<sub>net,g,min</sub> = <span class="fr"><span>Q̇<sub>H</sub></span><span>COP<sub>IP,tr</sub></span></span> = <span class="fr"><span>37.5</span><span>11.3</span></span> = 3.32 kW</span></li></ol><div><span class="ans">Ẇ<sub>min</sub> = 3.32 kW</span></div><div class="note"><b>Not:</b> Elektrikli ısıtıcı 37.5 kW çekerdi (11.3 katı). Slayttaki formülde 12 °C yazılmış ama hesap 21 °C (294 K) ile yapılmıştır — doğrusu 294 K.</div></details></div></div><div class="prob"><div class="ph"><span class="tag">Soru 6</span><div><div class="topic">Ek soru · mümkün mü?</div><p class="q">Bir mucit 1000 K ile 300 K arasındaki depolar arasında çalışan, 500 kJ ısı alıp 380 kJ iş üreten bir makine yaptığını iddia ediyor. Bu iddia mümkün mü?</p></div><button class="done" data-id="p6">Anladım olarak işaretle</button></div>
+<div class="body"><div class="given"><span>T<sub>H</sub> = 1000 K</span><span>T<sub>L</sub> = 300 K</span><span>Q<sub>H</sub> = 500 kJ</span><span>W = 380 kJ</span></div><details><summary>Çözümü göster</summary><ol class="steps"><li>İddia edilen verim: <span class='m'>η = 380/500 = 0.76</span></li><li>Aynı depolar arası en yüksek (Carnot) verim: <span class='m'>η<sub>tr</sub> = 1 − 300/1000 = 0.70</span></li><li><span class='m'>η &gt; η<sub>tr</sub></span> ⟹ makine 2. yasaya aykırıdır (DDM2).</li></ol><div><span class="ans">Olanaksız (0.76 > 0.70)</span></div><div class="note"><b>Not:</b> Bu tip "iddia doğru mu?" soruları sınavlarda çok sık gelir: daima Carnot sınırıyla kıyasla.</div></details></div></div></section>
+<section id="kavram"><h2><span class="num">8</span>Kavram Soruları</h2><div class="card"><div class="qa"><b>Bir ısı makinesinin verimi %100 olamaz. Bunun sebebi sürtünme midir?</b><details><summary>Cevap</summary><div class="a">Hayır. Sınırlama 2. yasadan (Kelvin–Planck) gelir; sürtünmesiz ideal makineler için de geçerlidir. Çevrimi tamamlamak için düşük sıcaklıktaki depoya ısı atmak zorunludur.</div></details></div><div class="qa"><b>COP<sub>SM</sub> 1'den büyük olabilir mi? COP<sub>IP</sub> 1'den küçük olabilir mi?</b><details><summary>Cevap</summary><div class="a">COP<sub>SM</sub> 1'den büyük olabilir (çekilen ısı harcanan işten fazla olabilir). COP<sub>IP</sub> = COP<sub>SM</sub> + 1 olduğu için 1'den küçük olamaz.</div></details></div><div class="qa"><b>Carnot ısı makinesinin verimini nasıl artırırsın?</b><details><summary>Cevap</summary><div class="a">T<sub>H</sub>'yi yükselterek veya T<sub>L</sub>'yi düşürerek. Pratikte T<sub>L</sub> çevre sıcaklığıyla sınırlı olduğundan genelde T<sub>H</sub> artırılır (malzeme sınırına kadar).</div></details></div><div class="qa"><b>Kelvin–Planck ve Clausius ifadeleri neden eşdeğerdir?</b><details><summary>Cevap</summary><div class="a">Clausius'a aykırı bir buzdolabını, aynı depolar arasında çalışan bir ısı makinesiyle birleştirirsen net etki tek depodan ısı alıp iş üreten bir makine olur — Kelvin–Planck'a aykırı. Tersi de gösterilebilir.</div></details></div><div class="qa"><b>Sonlu sıcaklık farkında ısı geçişi neden tersinmezdir?</b><details><summary>Cevap</summary><div class="a">Çünkü ısıyı tersine (soğuktan sıcağa) aktarmak için iş harcamak gerekir; bu, çevrede iz bırakır. Ayrıca soğuktan sıcağa kendiliğinden ısı geçişi olanaksızdır.</div></details></div><div class="qa"><b>DDM1 ile DDM2 farkı nedir?</b><details><summary>Cevap</summary><div class="a">DDM1 1. yasaya aykırıdır (yoktan enerji). DDM2 2. yasaya aykırıdır (ör. tek depodan alınan ısının tamamını işe çevirmek).</div></details></div></div></section>
+<section id="formul"><h2><span class="num">9</span>Formül Kartı</h2>
+<div class="card sheet"><div class="grid">
+<div><h4>Isı makinesi</h4><div class="eq">W<sub>net</sub> = Q<sub>H</sub> − Q<sub>L</sub></div><div class="eq">η = 1 − Q<sub>L</sub>/Q<sub>H</sub></div><div class="eq">η<sub>tr</sub> = 1 − T<sub>L</sub>/T<sub>H</sub></div></div>
+<div><h4>Soğutma makinesi</h4><div class="eq">COP<sub>SM</sub> = Q<sub>L</sub>/W</div><div class="eq">COP<sub>SM,tr</sub> = T<sub>L</sub>/(T<sub>H</sub> − T<sub>L</sub>)</div></div>
+<div><h4>Isı pompası</h4><div class="eq">COP<sub>IP</sub> = Q<sub>H</sub>/W</div><div class="eq">COP<sub>IP,tr</sub> = T<sub>H</sub>/(T<sub>H</sub> − T<sub>L</sub>)</div><div class="eq">COP<sub>IP</sub> = COP<sub>SM</sub> + 1</div></div>
+<div><h4>Tersinir çevrim</h4><div class="eq">Q<sub>H</sub>/Q<sub>L</sub> = T<sub>H</sub>/T<sub>L</sub></div><div class="eq">gerçek &lt; tersinir &lt; olanaksız</div></div>
+</div>
+<div class="tip"><b>Hızlı kontrol listesi:</b> Sıcaklıklar K mi? · Q<sub>H</sub> = Q<sub>L</sub> + W tutuyor mu? · Bulduğun η veya COP, Carnot değerini aşıyor mu? (Aşıyorsa ya hata yaptın ya da makine olanaksız.)</div>
+</div>
+</section>
+
+<footer>Termodinamik I · ders slaytlarından hazırlanmış özet · tablo değerleri slaytlardaki (Çengel) değerlerdir</footer>
+</main>
+<script>
+function toggleAll(open){document.querySelectorAll('details').forEach(d=>d.open=open)}
+(function(){
+ var key='termo-'+document.body.dataset.page;
+ var st={};try{st=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+ document.querySelectorAll('.done').forEach(function(b){
+  var id=b.dataset.id; if(st[id]){b.classList.add('on');b.textContent='✓ Anladım'}
+  b.addEventListener('click',function(){
+   var on=!b.classList.contains('on'); b.classList.toggle('on',on); b.textContent=on?'✓ Anladım':'Anladım olarak işaretle';
+   st[id]=on; try{localStorage.setItem(key,JSON.stringify(st))}catch(e){}
+   upd();
+  });
+ });
+ function upd(){var t=document.querySelectorAll('.done').length,d=document.querySelectorAll('.done.on').length;var el=document.getElementById('prog');if(el)el.textContent=d+'/'+t+' soru tamam'}
+ upd();
+ window.addEventListener('beforeprint',function(){toggleAll(true)});
+})();
+</script>
+</body></html>
